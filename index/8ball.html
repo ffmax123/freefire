@@ -1,0 +1,1040 @@
+<html>
+<head>
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Tip Tip </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.7/lib/theme-chalk/index.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui@2.15.7/lib/index.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.0/jquery.min.js"></script>
+    
+    <script>
+        setButtonImage("https://cdn.glitch.global/90b40dff-d20a-43db-a8a1-4ffd7cda0cce/IMG_5967.jpeg?v=1719145190914");
+           setWindowDrag(0, 0, 360, 320);
+            setWindowRect(50,10,300,415);
+      </script>
+    <style>
+      html {
+        zoom: 0.9;
+        /*在手机上显示整体放大1.2倍*/
+      }
+      #title-img{
+        position: relative;
+        z-index:1000;
+      top: 1px;
+      
+    }
+      body,
+      html {
+        min-width: 100%;
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-weight: 1000;
+        font-size: 12px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 2000;
+        
+      }
+      body{
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+   }
+      *:not(input, checkbox, textarea) {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+  #H5AlertView {
+    text-align:center;}
+
+  #titleBar{
+    font-weight: 500;
+    font-size: 14px;
+    position: relative;
+    color: white;
+    top: -7px;
+    border-radius: 5px;
+  }
+      
+ 
+      .ciamenu1 {
+        width: 260px;
+        height: 30px;
+        border-radius: 15px;
+        background: #fff;
+        position: relative;
+        left: 15px;
+        
+        
+      }
+  
+      .ciamain {
+        width: 250px;
+        height: 80px;
+        border-radius: 12px;
+        background: #fff;
+        position: relative;
+        left: 15px;
+        top: 0px;
+      }
+      .ayimgui {
+        position: flex;
+        width: auto;
+        height: auto;
+        border: 5px;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 8px;
+        border: 1px solid #555;
+        overflow: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .ayimgui .aytitle {
+        padding: 5px;
+        font-size: 15px;
+        background-color: #000;
+
+    }
+
+    .ayimgui .aytitle i {
+        font-size: 20px;
+        color: #f0f0f0;
+    }
+
+    .ayimgui .aytitle .titleClose {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: #F0F0F0;
+    }
+
+    .ayimgui .aytitle .titleClose:hover {
+        color: #409EFF;
+    }
+
+    .ayimgui .aybody {
+        padding: 15px;
+        height: calc(100% - 21px - 15px - 15px);
+        /*减去标题高度，减去上线padding高度*/
+        overflow: auto;
+        font-size: 14px;
+    }
+
+
+    .aytext {
+        width: 100%;
+        padding-top: 5px;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        color: rgb(51, 205, 232);
+    }
+    button:active {
+        transform: translateY(3px)
+    }
+
+    .el-checkbox {
+        margin: 0px;
+    }
+
+    .el-checkbox__label {
+        color: #f0f0f0;
+    }
+
+    .el-checkbox__input.is-checked+.el-checkbox__label {
+        color: #409EFF;
+    }
+
+    .el-checkbox__inner {
+        background-color: #333333;
+        border-radius: 50%;
+        width: 24px;
+        /* Tăng kích thước */
+        height: 24px;
+        /* Tăng kích thước */
+    }
+
+
+    .el-radio {
+        margin: 8px 0;
+    }
+
+    .el-radio__label {
+        color: #F0F0F0;
+    }
+
+    .el-radio__input.is-checked+.el-radio__label {
+        color: #f0f0f0;
+    }
+
+    .el-radio__inner {
+        background-color: rgb(254, 254, 254);
+        border: none;
+    }
+
+    .el-radio__input.is-checked .el-radio__inner {
+        background-color: rgb(254, 254, 254);
+    }
+
+    .el-radio__inner::after {
+        width: 10px;
+        height: 10px;
+        background-color: rgb(58, 138, 247);
+    }
+
+    .onlySelect {
+        background-color: rgb(254, 254, 254);
+        border: none;
+    }
+
+    .onlySelect .el-select-dropdown__item {
+        color: #F0F0F0;
+
+    }
+
+    .onlySelect .el-select-dropdown__item.hover,
+    .el-select-dropdown__item:hover:hover {
+        background-color: transparent;
+    }
+
+    .onlySelect .popper__arrow {
+        border-bottom-color: rgb(254, 254, 254) !important;
+    }
+
+    .onlySelect.el-popper[x-placement^=bottom] .popper__arrow::after {
+        border-bottom-color: rgb(8254, 254, 254) !important;
+    }
+
+    .el-select {
+        width: 100%;
+    }
+
+    .el-select .el-input {
+        background-color: rgb(254, 254, 254);
+    }
+
+    .el-select .el-input__suffix {
+        background-color: rgb(160, 196, 243);
+        color: #F0F0F0;
+        right: 0;
+    }
+
+    .el-select .el-select__caret {
+        color: #F0F0F0;
+    }
+
+    .el-select .el-input__inner {
+        background-color: transparent;
+        border: none;
+        color: #F0F0F0;
+    }
+
+    .el-select .el-input .el-select__caret {
+        color: #F0F0F0;
+    }
+
+    /* 解决ios下拉需要点两次 */
+    .el-scrollbar .el-scrollbar__bar {
+        opacity: 1 !important;
+    }
+
+    .el-button {
+        font-size: 14px;
+        padding: 5px 10px;
+        line-height: 14px;
+        color: #F0F0F0;
+        background-color: #B8D1F2;
+    }
+
+    .el-button:hover {
+        opacity: .7;
+        color: #F0F0F0;
+        background-color: #B8D1F2;
+    }
+
+    .el-button:focus,
+    .el-button:hover {
+        color: #F0F0F0;
+        background-color: #B8D1F2;
+    }
+
+    .aycollapse {
+        width: 100%;
+        height: 6%;
+        font-size: 14px;
+        background-color: rgb(0,0,0);
+        color: #e9f912;
+    }
+
+    .aytab {
+        width: 100%;
+        height: 25px;
+        display: flex;
+        border-bottom: 0.8px solid #666;
+        order: 1;
+    }
+
+    .aytab span {
+
+        padding: 0 5px;
+        width: 15%;
+        height: 97%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(189, 199, 208);
+        color: #F0F0F0;
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 10px;
+        border-top: 0.8px solid #666;
+        border-right: 0.8px solid #666;
+        border-left: 0.8px solid #666;
+        border-radius: 6px 6px 0 0;
+        cursor: pointer;
+        order: 2;
+    }
+
+    .aycollapses span {
+        background-color: rgb(177, 206, 240);
+        color: #000;
+    }
+
+    .el-input input {
+        background-color: rgb(254, 254, 254);
+        border: none;
+        border-radius: 0px;
+    }
+
+    .checkbox-wrapper-24 .checkbox {
+        display: table-cell;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        text-align: center;
+
+    }
+
+    .checkbox-wrapper-24 label {
+        display: inline-block;
+        color: #f9f9f9;
+        cursor: pointer;
+        position: relative;
+        margin-bottom: 5px;
+    }
+
+    .checkbox-wrapper-24 label span {
+        display: inline-block;
+        position: relative;
+        background-color: #999;
+        width: 25px;
+        height: 25px;
+        transform-origin: center;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 10px;
+
+    }
+
+    .checkbox-wrapper-24 label span:before {
+        content: "";
+        width: 0px;
+        height: 2px;
+        border-radius: 2px;
+        position: absolute;
+        transform: rotate(45deg);
+        top: 10px;
+        left: 4px;
+        transition: width 50ms ease 50ms;
+        transform-origin: 0% 100%;
+    }
+
+    .checkbox-wrapper-24 label span:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        border-radius: 2px;
+
+        position: absolute;
+        transform: rotate(305deg);
+        top: 15px;
+        left: 8px;
+
+        transform-origin: 25% 0%;
+    }
+
+    .checkbox-wrapper-24 label:hover span:before {
+        width: 7px;
+
+    }
+
+    .checkbox-wrapper-24 label:hover span:after {
+        width: 15px;
+
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox] {
+        display: none;
+
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox]:checked+label span {
+        background-color: #cdcccb;
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox]:checked+label span:after {
+        width: 16px;
+        background: #0cea1f;
+
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox]:checked+label span:before {
+        width: 9px;
+        background: #1df40e;
+
+    }
+    .checkbox-wrapper-25 .checkbox {
+        display: table-cell;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        text-align: center;
+
+    }
+
+    .checkbox-wrapper-25 label {
+        width: 102px;
+        display: inline-block;
+        color: #f9f9f9;
+        cursor: pointer;
+        position: relative;
+        margin-bottom: 5px;
+    }
+
+    .checkbox-wrapper-25 label span {
+        display: inline-block;
+        position: relative;
+        background-color: #999;
+        width: 25px;
+        height: 25px;
+        transform-origin: center;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 10px;
+
+    }
+
+    .checkbox-wrapper-25 label span:before {
+        content: "";
+        width: 0px;
+        height: 2px;
+        border-radius: 2px;
+
+        position: absolute;
+        transform: rotate(45deg);
+        top: 10px;
+        left: 4px;
+        transition: width 50ms ease 50ms;
+        transform-origin: 0% 100%;
+    }
+
+    .checkbox-wrapper-25 label span:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        border-radius: 2px;
+
+        position: absolute;
+        transform: rotate(305deg);
+        top: 15px;
+        left: 8px;
+
+        transform-origin: 25% 0%;
+    }
+
+    .checkbox-wrapper-25 label:hover span:before {
+        width: 7px;
+
+    }
+
+    .checkbox-wrapper-25 label:hover span:after {
+        width: 15px;
+
+    }
+
+    .checkbox-wrapper-25 input[type=checkbox] {
+        display: none;
+
+    }
+
+    .checkbox-wrapper-25 input[type=checkbox]:checked+label span {
+        background-color: #cdcccb;
+    }
+
+    .checkbox-wrapper-25 input[type=checkbox]:checked+label span:after {
+        width: 16px;
+        background: #0cea1f;
+
+    }
+
+    .checkbox-wrapper-25 input[type=checkbox]:checked+label span:before {
+        width: 9px;
+        background: #1df40e;
+
+    }
+
+    .vip {
+        background-color: rgb(243, 210, 23);
+        color: black;
+        padding: 3px 20px;
+        position: absolute;
+        bottom: 25px;
+        right: 0;
+        transform: rotate(-45deg) translate(15px, 15px);;
+        transform-origin: right bottom;
+    }
+
+    .c {
+        color: gold;
+    }
+canvas {
+            border: 1px solid yellow; /* Add yellow border to canvas */
+            border-radius: 1px; /* Optional: round the corners */
+        }
+     
+     
+    </style>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>    
+<div id="app">
+    <div :class="!ifshow?'onlyTitle ayimgui':'ayimgui'" ref="menuMain">
+            <div class="aytitle" id="title-img">
+                          <img style="width: 30px;height: 30px; border-radius: 50%;" src="https://cdn.glitch.global/90b40dff-d20a-43db-a8a1-4ffd7cda0cce/IMG_5967.jpeg?v=1719145190914" width="40" height="40">
+                           <span class="title-age" style="margin-left:20px; color:#f0f0f0;"> Menu 8 Ball By Tip Tip   <img src="https://github.com/WeansHHN/weanshhn.github.io/blob/main/img/gif/gifwaifu.gif?raw=true" alt="weanshhn" width="25" height="25" /> </span>
+                       </div>
+                <div class="aybody">
+                    <div class="aytab">
+                        <span @click="changeTab('one')"
+                            :style="{background:tabValue==='one'?'#444444':'	#111111'}">Múp  </span>
+                        <span @click="changeTab('five')"
+                            :style="{background:tabValue==='five'?'#444444':'	#111111'}"> TipTip </span>
+                    </div>
+                    <strong>
+                        <div v-show="tabValue==='one'">
+                            <div class="aytext">
+                            </div>
+                            <div class="checkbox-wrapper-24">
+                                <div>
+                                     <input type="checkbox" id="active2" name="remember" type="checkbox" onclick="endDraw()">
+                                    <label for="active2" class="checkboxed"><span></span> Tắt Line </label>
+                        
+                                    <input type="checkbox" id="active4" name="remember" type="checkbox" onclick="hide()">
+                                    <label for="active4" class="checkboxed"><span></span> Ẩn </label>
+                                </div>
+<br>
+                                    <center>
+
+<div>
+    <button id="decreaseButton">-</button>
+    <input type="number" id="size" min="1" max="5" value="2" step="0.01" readonly>
+    <button id="increaseButton">+</button>
+    <span id="sizeValue" class="aytext">2</span>
+    <button id="startButton">Bật Line</button>
+</div>
+</center>
+
+</div>
+
+                            <div class="aytext" style="text-align: center;">
+                                <p>
+                                    Make by TikTok: TipTip
+                                </p>
+                            </div>
+                        </div>
+                        <div v-show="tabValue === 'five'">
+                            <div class="checkbox-wrapper-24">
+                                <br>
+
+                                <center>
+                                <a href="https://t.me/gamemodios"><button style=" margin: 8px 25px;"> Telegram: TipTip</button></a>
+                                <br>
+                                <a href="https://t.me/freefiretiptip"><button style=" margin: 8px 25px;">Box Chat Telegram FF </button></a>
+                            </center>
+                            </div>
+                            <br>
+                            <div class="aytext" style="text-align: center;">
+                                <p>
+                                    Make by TikTok: TipTip
+                                </p>
+                            </div>
+                        </div>
+                </strong>
+            </div>
+        </div>
+        
+        <script > var app = new Vue({
+    el: "#app", data() {
+        return {
+            currentAttempt: 0,
+            ifshow: !0,
+            checked: !1,
+            radio: '1',
+            activeSelect: '',
+            selectOption: [{
+                value: '0%', label: '0%'
+            }, {
+                value: '50%', label: '50%'
+            }, {
+                value: '100%', label: '100%'
+            }], 
+            input: "", 
+            showOption1: !1, 
+            showOption: !1, 
+            showOption2: !1, 
+            tabValue: "one",
+        }}, mounted() {
+        this.setRect(360, 320); var sWidth = window.screen.width; var sHeight = window.screen.height; if (window.screen.availWidth > window.screen.availHeight) {
+            sWidth = window.screen.height; sHeight = window.screen.width
+        }
+        setWindowRect(0, 0, sWidth, sHeight); setButtonAction(function() {
+            var menu = document.querySelector("#app"); if (menu.style.display == 'none') {
+                menu.style.display = 'block'; setWindowTouch(!0)} else {
+                menu.style.display = 'none'; setWindowTouch(!1)}})}, methods: {
+        setRect(w,
+            h,
+            x=-1,
+            y=-1) {
+            var boxW = w; var boxH = h; var ayMenu = this.$refs.menuMain; ayMenu.style.width = `${boxW}px`; ayMenu.style.height = `${boxH}px`; if (x==-1)ayMenu.style.left = `calc(50% - ${boxW / 2}px)`; if (y==-1)ayMenu.style.top = `calc(50% - ${boxH / 2}px)`
+        },
+        titleTouchStart(event) {
+            this.touchStartX = parseInt(event.touches[0].clientX); this.touchStartY = parseInt(event.touches[0].clientY); var ayMenu = this.$refs.menuMain; this.menuLastX = ayMenu.offsetLeft; this.menuLastY = ayMenu.offsetTop
+        },
+        titleTouchMove(event) {
+            event.preventDefault(); var distanceX = event.touches[0].clientX-this.touchStartX; var distanceY = event.touches[0].clientY-this.touchStartY; var ayMenu = this.$refs.menuMain; ayMenu.style.left = this.menuLastX+distanceX+"px"; ayMenu.style.top = this.menuLastY+distanceY+"px"
+        },
+ 
+        changeTab(v) {
+            this.tabValue = v
+        },
+        closeimgui() {
+            var menu = document.querySelector("#app"); menu.style.display = 'none'
+        }}});</script>
+    </div> 
+</div>
+    <canvas id="canvas" width="100%" height="100%"></canvas>
+<script>
+document.getElementById('decreaseButton').addEventListener('click', function() {
+    var sizeInput = document.getElementById('size');
+    var currentValue = parseFloat(sizeInput.value);
+    var newValue = currentValue - 0.01;
+    if (newValue >= parseFloat(sizeInput.min)) {
+        sizeInput.value = newValue.toFixed(2);
+        document.getElementById('sizeValue').innerText = newValue.toFixed(2);
+    }
+});
+
+document.getElementById('increaseButton').addEventListener('click', function() {
+    var sizeInput = document.getElementById('size');
+    var currentValue = parseFloat(sizeInput.value);
+    var newValue = currentValue + 0.01;
+    if (newValue <= parseFloat(sizeInput.max)) {
+        sizeInput.value = newValue.toFixed(2);
+        document.getElementById('sizeValue').innerText = newValue.toFixed(2);
+    }
+});
+
+document.getElementById('startButton').addEventListener('click', function() {
+    var sizeValue = document.getElementById('size').value;
+    console.log('Giá trị hiện tại:', sizeValue);
+    // Thêm mã xử lý sự kiện bắt đầu tại đây
+});
+</script>
+
+<script>
+    // setWindowDrag(0, 0, 500, 500);
+    // height / width table = 0.55
+    // scale table = 1.05625
+    var canvas = document.querySelector("#canvas");
+    var ctx = canvas.getContext("2d", {
+        alpha: false,
+        desynchronized: false,
+    });
+    var tableOnScreen = {
+        width: 894 * 1.05625,
+        height: 496 * 0.9575
+    };
+    // canvas.style.position = 'absolute';
+    // var scale = 127/53;
+    var scale = 1.14;
+    var scaleTableWidth = 1.05625;
+    var scaleTableHeight = 0.9575;
+    var scaleTable = 1;
+    var devicePixelRatio = window.devicePixelRatio;
+    if (Math.abs(window.orientation) == 90) {
+        setWindowRect(0, 0, window.screen.height, window.screen.width);
+    } else {
+        setWindowRect(0, 0, window.screen.width, window.screen.height);
+    }
+    setButtonImage(src = "https://tiptipios.github.io/ios/IMG_6318.png")
+
+    var drawScreen, lockerBall;
+
+window.onload = function() {
+         var canvas = document.getElementById('canvas');
+         var ctx = canvas.getContext('2d');
+         var sizeInput = document.getElementById('size');
+         var sizeValue = document.getElementById('sizeValue');
+         var startButton = document.getElementById('startButton');
+     
+         // Hàm để cập nhật kích thước canvas
+         function updateCanvasSize(scaleFactor) {
+             var tableOnScreen = {
+                 width: 894 * 1.05625 * scaleFactor,
+                 height: 496 * 0.9575 * scaleFactor
+             };
+     
+             canvas.width = tableOnScreen.width;
+             canvas.height = tableOnScreen.height;
+             ctx.clearRect(0, 0, canvas.width, canvas.height); // Xóa canvas sau khi thay đổi kích thước
+         }
+     
+         // Cập nhật kích thước theo giá trị slider
+         sizeInput.addEventListener('input', function() {
+             var scaleFactor = parseFloat(sizeInput.value);
+             sizeValue.textContent = scaleFactor;
+             updateCanvasSize(scaleFactor);
+         });
+     
+         // Xử lý nút Bắt đầu
+         startButton.addEventListener('click', function() {
+             var scaleFactor = parseFloat(sizeInput.value);
+             updateCanvasSize(scaleFactor);
+     
+             // Thực hiện vẽ trên canvas
+             startDraw(); // Gọi hàm để vẽ đường trên canvas
+         });
+     
+         // Hàm vẽ đường (cập nhật với các đường vẽ của bạn)
+         function startDraw() {
+             var addr = findAddr();
+             if (addr) {
+                 var whiteLine = findWhite(addr);
+                 var whiteLineVal = {
+                     x_start_val: 0,
+                     y_start_val: 0,
+                     x_end_val: 0,
+                     y_end_val: 0
+                 };
+     
+                 var ballLine = findBall(addr);
+                 var ballLineVal = {
+                     x_start_val: 0,
+                     y_start_val: 0,
+                     x_end_val: 0,
+                     y_end_val: 0
+                 };
+     
+                 var table = findTable(addr);
+     
+                 var scaleFactor = parseFloat(sizeInput.value); // Sử dụng giá trị từ slider
+                 var tableOnScreen = {
+                     width: 894 * 1.05625 * scaleFactor * (1 + parseFloat(document.getElementById("scale").value) / 100),
+                     height: 496 * 0.9575 * scaleFactor * (1 + parseFloat(document.getElementById("scale").value) / 100)
+                 };
+     
+                 if (Math.abs(window.orientation) == 90) {
+                     setWindowRect((window.screen.height - tableOnScreen.width / devicePixelRatio) / 2, (table.y_max - 6) / 3 * (1 + parseFloat(document.getElementById("scaletop").value) / 100), tableOnScreen.width / devicePixelRatio, tableOnScreen.height / devicePixelRatio);
+                     canvas.width = tableOnScreen.width / devicePixelRatio;
+                     canvas.height = tableOnScreen.height / devicePixelRatio;
+                 } else {
+                     setWindowRect((window.screen.width - tableOnScreen.width / devicePixelRatio) / 2, (table.y_max - 6) / 3 * (1 + parseFloat(document.getElementById("scaletop").value) / 100), tableOnScreen.width / devicePixelRatio, tableOnScreen.height / devicePixelRatio);
+                 }
+     
+                 drawScreen = setInterval(function () {
+                     var check = readF64(addr);
+                     if (check > 1) {
+                         ctx.clearRect(0, 0, canvas.width, canvas.height);
+     
+                         // -----------------------line 1----------------------- //
+                         whiteLineVal.x_start_val = readF64(whiteLine.x_start);
+                         whiteLineVal.y_start_val = readF64(whiteLine.y_start);
+                         whiteLineVal.x_end_val = readF64(whiteLine.x_end);
+                         whiteLineVal.y_end_val = readF64(whiteLine.y_end);
+     
+                         var whiteLineValEnd = calculateValEnd(whiteLineVal, table);
+     
+                         // real line
+                         h5gg.setValue(whiteLine.x_end, whiteLineValEnd.x, "F64");
+                         h5gg.setValue(whiteLine.y_end, whiteLineValEnd.y, "F64");
+     
+                         var whiteLineValScreen = pointToScreen2D(whiteLineVal, table);
+                         drawLine(ctx, whiteLineValScreen.x_start, whiteLineValScreen.y_start, whiteLineValScreen.x_end, whiteLineValScreen.y_end, "red", 2);
+     
+                         var lineTable = getLineTable(whiteLineVal, table);
+                         var angle = 0;
+                         if (lineTable.y_end == table.y_max && lineTable.x_end == table.x_max) {
+                             angle = (Math.PI / 2 + calculateAngleBetween2Lines(whiteLineValScreen, lineTable)) * 2;
+                         } else {
+                             angle = (Math.PI / 2 - calculateAngleBetween2Lines(whiteLineValScreen, lineTable)) * 2;
+                         }
+     
+                         var whiteLineValScreen = rotatePoint(whiteLineValScreen, angle);
+                         drawLine(ctx, whiteLineValScreen.x_start, whiteLineValScreen.y_start, whiteLineValScreen.x_end, whiteLineValScreen.y_end, "red", 2);
+     
+                         // -----------------------line 2----------------------- //
+                         ballLineVal.x_start_val = readF64(ballLine.x_start);
+                         ballLineVal.y_start_val = readF64(ballLine.y_start);
+                         ballLineVal.x_end_val = readF64(ballLine.x_end);
+                         ballLineVal.y_end_val = readF64(ballLine.y_end);
+     
+                         var ballValEnd = calculateValEnd(ballLineVal, table);
+     
+                         // real line
+                         h5gg.setValue(ballLine.x_end, ballValEnd.x, "F64");
+                         h5gg.setValue(ballLine.y_end, ballValEnd.y, "F64");
+     
+                         var ballValScreen = pointToScreen2D(ballLineVal, table);
+                         drawLine(ctx, ballValScreen.x_start, ballValScreen.y_start, ballValScreen.x_end, ballValScreen.y_end, "green", 2);
+     
+                         var ballLineTable = getLineTable(ballLineVal, table);
+                         var angle = 0;
+                         if (ballLineTable.y_end == table.y_max && ballLineTable.x_end == table.x_max) {
+                             angle = (Math.PI / 2 + calculateAngleBetween2Lines(ballValScreen, ballLineTable)) * 2;
+                         } else {
+                             angle = (Math.PI / 2 - calculateAngleBetween2Lines(ballValScreen, ballLineTable)) * 2;
+                         }
+     
+                         var ballValScreen = rotatePoint(ballValScreen, angle);
+                         drawLine(ctx, ballValScreen.x_start, ballValScreen.y_start, ballValScreen.x_end, ballValScreen.y_end, "green", 2);
+                     } else {
+                         ctx.clearRect(0, 0, canvas.width, canvas.height);
+                         addr = findAddr();
+                         whiteLine = findWhite(addr);
+                         ballLine = findBall(addr);
+                     }
+                 }, 10);
+             }
+         }
+     
+         // Cập nhật kích thước canvas ban đầu
+         updateCanvasSize(parseFloat(sizeInput.value));
+     };
+     
+    function endDraw() {
+        clearInterval(drawScreen);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    };
+
+    function hide() {
+        document.getElementById("H5AlertView").style.display = "none";
+    };
+
+    function readF64(addr) {
+        return Number(h5gg.getValue(Number(addr), "F64"));
+    }
+
+    function getLineTable(line, table) {
+        var lineTable = {
+            x_start: 0,
+            y_start: 0,
+            x_end: 0,
+            y_end: 0
+        };
+        var intersection = calculateValEnd(line, table);
+        if (intersection.x == table.x_min) { // left
+            lineTable.x_start = table.x_min;
+            lineTable.y_start = table.y_min;
+            lineTable.x_end = table.x_min;
+            lineTable.y_end = table.y_max;
+        } else if (intersection.x == table.x_max) { // right
+            lineTable.x_start = table.x_max;
+            lineTable.y_start = table.y_min;
+            lineTable.x_end = table.x_max;
+            lineTable.y_end = table.y_max;
+        } else if (intersection.y == table.y_min) { // bottom
+            lineTable.x_start = table.x_min;
+            lineTable.y_start = table.y_min;
+            lineTable.x_end = table.x_max;
+            lineTable.y_end = table.y_min;
+        } else if (intersection.y == table.y_max) { // top
+            lineTable.x_start = table.x_min;
+            lineTable.y_start = table.y_max;
+            lineTable.x_end = table.x_max;
+            lineTable.y_end = table.y_max;
+        }
+        return lineTable;
+    }
+
+    function calculateValEnd(lineVal, table) {
+        var whiteValEnd;
+
+        if (lineVal.x_start_val < lineVal.x_end_val && lineVal.y_start_val < lineVal.y_end_val) {
+            whiteValEnd = lineIntersection(lineVal.x_start_val, lineVal.y_start_val, lineVal.x_end_val, lineVal.y_end_val, table.x_min, table.y_max, table.x_max, table.y_max); //top
+            if (whiteValEnd.x > table.x_max) {
+                whiteValEnd = lineIntersection(lineVal.x_start_val, lineVal.y_start_val, lineVal.x_end_val, lineVal.y_end_val, table.x_max, table.y_min, table.x_max, table.y_max); //right
+            }
+        } else if (lineVal.x_start_val < lineVal.x_end_val && lineVal.y_start_val > lineVal.y_end_val) {
+            whiteValEnd = lineIntersection(lineVal.x_start_val, lineVal.y_start_val, lineVal.x_end_val, lineVal.y_end_val, table.x_min, table.y_min, table.x_max, table.y_min); //bottom
+            if (whiteValEnd.x > table.x_max) {
+                whiteValEnd = lineIntersection(lineVal.x_start_val, lineVal.y_start_val, lineVal.x_end_val, lineVal.y_end_val, table.x_max, table.y_max, table.x_max, table.y_min); //right
+            }
+        } else if (lineVal.x_start_val > lineVal.x_end_val && lineVal.y_start_val > lineVal.y_end_val) {
+            whiteValEnd = lineIntersection(lineVal.x_start_val, lineVal.y_start_val, lineVal.x_end_val, lineVal.y_end_val, table.x_max, table.y_min, table.x_min, table.y_min); //bottom
+            if (whiteValEnd.x < table.x_min) {
+                whiteValEnd = lineIntersection(lineVal.x_start_val, lineVal.y_start_val, lineVal.x_end_val, lineVal.y_end_val, table.x_min, table.y_max, table.x_min, table.y_min); //left
+            }
+        } else if (lineVal.x_start_val > lineVal.x_end_val && lineVal.y_start_val < lineVal.y_end_val) {
+            whiteValEnd = lineIntersection(lineVal.x_start_val, lineVal.y_start_val, lineVal.x_end_val, lineVal.y_end_val, table.x_max, table.y_max, table.x_min, table.y_max); //top
+            if (whiteValEnd.x < table.x_min) {
+                whiteValEnd = lineIntersection(lineVal.x_start_val, lineVal.y_start_val, lineVal.x_end_val, lineVal.y_end_val, table.x_min, table.y_min, table.x_min, table.y_max); //left
+            }
+        } else if (lineVal.x_start_val == lineVal.x_end_val) {
+            whiteValEnd = { x: lineVal.x_start_val, y: table.y_max };
+            if (lineVal.y_start_val > lineVal.y_end_val) {
+                whiteValEnd.y = table.y_min;
+            }
+        } else if (lineVal.y_start_val == lineVal.y_end_val) {
+            whiteValEnd = { x: table.x_max, y: lineVal.y_start_val };
+            if (lineVal.x_start_val > lineVal.x_end_val) {
+                whiteValEnd.y = table.y_min;
+            }
+        }
+
+        return whiteValEnd;
+    };
+
+    function lineIntersection(line1StartX, line1StartY, line1EndX, line1EndY, line2StartX, line2StartY, line2EndX, line2EndY) {
+        var denominator, a, b, numerator1, numerator2, result = {
+            x: null,
+            y: null
+        };
+        denominator = ((line2EndY - line2StartY) * (line1EndX - line1StartX)) - ((line2EndX - line2StartX) * (line1EndY - line1StartY));
+        if (denominator == 0) {
+            return result;
+        }
+        a = line1StartY - line2StartY;
+        b = line1StartX - line2StartX;
+        numerator1 = ((line2EndX - line2StartX) * a) - ((line2EndY - line2StartY) * b);
+        numerator2 = ((line1EndX - line1StartX) * a) - ((line1EndY - line1StartY) * b);
+        a = numerator1 / denominator;
+        b = numerator2 / denominator;
+
+        result.x = line1StartX + (a * (line1EndX - line1StartX));
+        result.y = line1StartY + (a * (line1EndY - line1StartY));
+
+        return result;
+    };
+
+    function calculateAngleBetween2Lines(line, lineTable) {
+        var dAx = line.x_end - line.x_start;
+        var dAy = line.y_end - line.y_start;
+        var dBx = lineTable.x_end - lineTable.x_start;
+        var dBy = lineTable.y_end - lineTable.y_start;
+        var angle = Math.atan2(dAx * dBy - dAy * dBx, dAx * dBx + dAy * dBy);
+        if (angle < 0) { angle = angle * -1; }
+        return angle;
+    }
+
+
+    function rotatePoint(point, angle) {
+        var rotatedX = point.x_end + (point.x_start - point.x_end) * Math.cos(angle) - (point.y_start - point.y_end) * Math.sin(angle);
+        var rotatedY = point.y_end + (point.x_start - point.x_end) * Math.sin(angle) + (point.y_start - point.y_end) * Math.cos(angle);
+
+        var end = calculateValEnd({ x_start_val: point.x_end, y_start_val: point.y_end, x_end_val: rotatedX, y_end_val: rotatedY }, { x_min: 0, y_min: 0, x_max: canvas.width, y_max: canvas.height });
+
+        return {
+            x_start: point.x_end,
+            y_start: point.y_end,
+            x_end: end.x,
+            y_end: end.y
+        };
+    }
+
+
+    function drawLine(ctx, startX, startY, endX, endY, color, lineWidth) {
+        var prevStrokeStyle = ctx.strokeStyle;
+        var prevLineWidth = ctx.lineWidth;
+
+        ctx.strokeStyle = color || 'black';
+        ctx.lineWidth = lineWidth || 1;
+
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+
+        ctx.strokeStyle = prevStrokeStyle;
+        ctx.lineWidth = prevLineWidth;
+    };
+
+    function pointToScreen2D(point, table) {
+        var widthTable = table.x_max - table.x_min;
+        var heightTable = table.y_max - table.y_min;
+        return {
+            x_start: (point.x_start_val - table.x_min) * canvas.width / widthTable,
+            y_start: (point.y_start_val - table.y_min) * canvas.height / heightTable * -1 + canvas.height,
+            x_end: (point.x_end_val - table.x_min) * canvas.width / widthTable,
+            y_end: (point.y_end_val - table.y_min) * canvas.height / heightTable * -1 + canvas.height
+        };
+    };
+
+    function findAddr() {
+        h5gg.clearResults();
+        h5gg.searchNumber('4615740327696932851', 'I64', '0x000000000', '0x160000000');
+        h5gg.searchNearby('4618963610245237243', 'I64', '0x8');
+        results = h5gg.getResults(2);
+        if (results[0].value == 4615740327696932851) {
+            return results[0].address;
+        } else if (results[1].value == 4615740327696932851) {
+            return results[1].address;
+        } else {
+            return 0;
+        }
+    };
+
+    function findWhite(addr) {
+        return {
+            x_start: Number(addr) + 8 * 14,
+            y_start: Number(addr) + 8 * 14 + 8,
+            x_end: Number(addr) + 8 * 14 + 8 + 8,
+            y_end: Number(addr) + 8 * 14 + 8 + 8 + 8
+        };
+    };
+
+    function findBall(addr) {
+        return {
+            x_start: Number(addr) + 8 * 14 + 8 + 8 + 8 + 8,
+            y_start: Number(addr) + 8 * 14 + 8 + 8 + 8 + 8 + 8,
+            x_end: Number(addr) + 8 * 14 + 8 + 8 + 8 + 8 + 8 + 8,
+            y_end: Number(addr) + 8 * 14 + 8 + 8 + 8 + 8 + 8 + 8 + 8
+        };
+    }
+
+    function findTable(addr) {
+        return {
+            x_min: readF64(Number(addr) + 8) - 106,
+            y_min: 30,
+            x_max: readF64(Number(addr) + 8) - 106 + 430,
+            y_max: 242
+        }
+    }
+</script>
+
+</html>
