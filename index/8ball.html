@@ -512,12 +512,36 @@
         .c {
             color: gold;
         }
+        .canvas-container {
+    position: relative;
+    display: inline-block;
+}
         canvas {
-            border: 1px solid yellow;
-            /* Add yellow border to canvas */
-            border-radius: 1px;
-            /* Optional: round the corners */
-        }
+    border: 1.2px solid red; 
+    border-radius: 1px;
+    animation: blink-border 2s infinite; 
+}
+
+.overlay-text {
+    position: absolute;
+    top: 95%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: bold;
+    pointer-events: none; 
+    animation: rainbow-text 2s infinite; 
+}
+       .overlay-text1 {
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: bold;
+    pointer-events: none; 
+    animation: rainbow-text 2s infinite; 
+} 
         .onlyfan {
             display: inline;
             height: 26px;
@@ -652,7 +676,12 @@
                 var menu = document.querySelector("#app"); menu.style.display = 'none'
             }}});
 </script>
-<canvas id="canvas" width="100%" height="100%"></canvas>
+<div class="canvas-container">
+    <canvas id="canvas"></canvas>
+    <div class="overlay-text"> t.me/gamemodios</div>
+    <div class="overlay-text1"> t.me/freefiretiptip</div>
+</div>
+
 <script>
 document.getElementById('decreaseButton').addEventListener('click', function() {
 var sizeInput = document.getElementById('size');
