@@ -1,0 +1,1624 @@
+<html>
+<head>
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Tip Tip </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.7/lib/theme-chalk/index.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui@2.15.7/lib/index.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script>
+        setButtonImage("https://tiptipios.github.io/ios/IMG_6318.png");
+        setWindowDrag(0, 0, 1000, 1020);
+        setWindowRect(350, 310, 300, 415);
+    </script>
+    <style>
+        html {
+            zoom: 1.0;
+            /*在手机上显示整体放大1.2倍*/
+        }
+        #title-img {
+            position: relative;
+            z-index: 1000;
+            top: 1px;
+
+        }
+        body,
+        html {
+            min-width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            font-weight: 1000;
+            font-size: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 2000;
+
+        }
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+        *:not(input, checkbox, textarea) {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #H5AlertView {
+            text-align: center;
+        }
+
+        #titleBar {
+            font-weight: 500;
+            font-size: 14px;
+            position: relative;
+            color: white;
+            top: -7px;
+            border-radius: 5px;
+        }
+
+
+        .ciamenu1 {
+            width: 260px;
+            height: 30px;
+            border-radius: 15px;
+            background: #fff;
+            position: relative;
+            left: 15px;
+
+
+        }
+
+        .ciamain {
+            width: 250px;
+            height: 80px;
+            border-radius: 12px;
+            background: #fff;
+            position: relative;
+            left: 15px;
+            top: 0px;
+        }
+        .ayimgui {
+            position: flex;
+            width: auto;
+            height: auto;
+            border: 5px;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            border: 1px solid #555;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .ayimgui .aytitle {
+            padding: 5px;
+            font-size: 15px;
+            background-color: #000;
+
+        }
+
+        .ayimgui .aytitle i {
+            font-size: 20px;
+            color: #f0f0f0;
+        }
+
+        .ayimgui .aytitle .titleClose {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: #F0F0F0;
+        }
+
+        .ayimgui .aytitle .titleClose:hover {
+            color: #409EFF;
+        }
+
+        .ayimgui .aybody {
+            padding: 15px;
+            height: calc(100% - 21px - 15px - 15px);
+            /*减去标题高度，减去上线padding高度*/
+            overflow: auto;
+            font-size: 14px;
+        }
+
+
+        .aytext {
+            width: 100%;
+            padding-top: 5px;
+            margin-bottom: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            color: rgb(51, 205, 232);
+        }
+        button:active {
+            transform: translateY(3px)
+        }
+
+        .el-checkbox {
+            margin: 0px;
+        }
+
+        .el-checkbox__label {
+            color: #f0f0f0;
+        }
+
+        .el-checkbox__input.is-checked+.el-checkbox__label {
+            color: #409EFF;
+        }
+
+        .el-checkbox__inner {
+            background-color: #333333;
+            border-radius: 50%;
+            width: 24px;
+            /* Tăng kích thước */
+            height: 24px;
+            /* Tăng kích thước */
+        }
+
+
+        .el-radio {
+            margin: 8px 0;
+        }
+
+        .el-radio__label {
+            color: #F0F0F0;
+        }
+
+        .el-radio__input.is-checked+.el-radio__label {
+            color: #f0f0f0;
+        }
+
+        .el-radio__inner {
+            background-color: rgb(254, 254, 254);
+            border: none;
+        }
+
+        .el-radio__input.is-checked .el-radio__inner {
+            background-color: rgb(254, 254, 254);
+        }
+
+        .el-radio__inner::after {
+            width: 10px;
+            height: 10px;
+            background-color: rgb(58, 138, 247);
+        }
+
+        .onlySelect {
+            background-color: rgb(254, 254, 254);
+            border: none;
+        }
+
+        .onlySelect .el-select-dropdown__item {
+            color: #F0F0F0;
+
+        }
+
+        .onlySelect .el-select-dropdown__item.hover,
+        .el-select-dropdown__item:hover:hover {
+            background-color: transparent;
+        }
+
+        .onlySelect .popper__arrow {
+            border-bottom-color: rgb(254, 254, 254) !important;
+        }
+
+        .onlySelect.el-popper[x-placement^=bottom] .popper__arrow::after {
+            border-bottom-color: rgb(8254, 254, 254) !important;
+        }
+
+        .el-select {
+            width: 100%;
+        }
+
+        .el-select .el-input {
+            background-color: rgb(254, 254, 254);
+        }
+
+        .el-select .el-input__suffix {
+            background-color: rgb(160, 196, 243);
+            color: #F0F0F0;
+            right: 0;
+        }
+
+        .el-select .el-select__caret {
+            color: #F0F0F0;
+        }
+
+        .el-select .el-input__inner {
+            background-color: transparent;
+            border: none;
+            color: #F0F0F0;
+        }
+
+        .el-select .el-input .el-select__caret {
+            color: #F0F0F0;
+        }
+
+        /* 解决ios下拉需要点两次 */
+        .el-scrollbar .el-scrollbar__bar {
+            opacity: 1 !important;
+        }
+
+        .el-button {
+            font-size: 14px;
+            padding: 5px 10px;
+            line-height: 14px;
+            color: #F0F0F0;
+            background-color: #B8D1F2;
+        }
+
+        .el-button:hover {
+            opacity: .7;
+            color: #F0F0F0;
+            background-color: #B8D1F2;
+        }
+
+        .el-button:focus,
+        .el-button:hover {
+            color: #F0F0F0;
+            background-color: #B8D1F2;
+        }
+
+        .aycollapse {
+            width: 100%;
+            height: 6%;
+            font-size: 14px;
+            background-color: rgb(0,0,0);
+            color: #e9f912;
+        }
+
+        .aytab {
+            width: 100%;
+            height: 25px;
+            display: flex;
+            border-bottom: 0.8px solid #666;
+            order: 1;
+        }
+
+        .aytab span {
+
+            padding: 0 5px;
+            width: 15%;
+            height: 97%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(189, 199, 208);
+            color: #F0F0F0;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 10px;
+            border-top: 0.8px solid #666;
+            border-right: 0.8px solid #666;
+            border-left: 0.8px solid #666;
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            order: 2;
+        }
+
+        .aycollapses span {
+            background-color: rgb(177, 206, 240);
+            color: #000;
+        }
+
+        .el-input input {
+            background-color: rgb(254, 254, 254);
+            border: none;
+            border-radius: 0px;
+        }
+
+        .checkbox-wrapper-24 .checkbox {
+            display: table-cell;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            text-align: center;
+
+        }
+
+        .checkbox-wrapper-24 label {
+            display: inline-block;
+            color: #f9f9f9;
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .checkbox-wrapper-24 label span {
+            display: inline-block;
+            position: relative;
+            background-color: #999;
+            width: 25px;
+            height: 25px;
+            transform-origin: center;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+
+        }
+
+        .checkbox-wrapper-24 label span:before {
+            content: "";
+            width: 0px;
+            height: 2px;
+            border-radius: 2px;
+            position: absolute;
+            transform: rotate(45deg);
+            top: 10px;
+            left: 4px;
+            transition: width 50ms ease 50ms;
+            transform-origin: 0% 100%;
+        }
+
+        .checkbox-wrapper-24 label span:after {
+            content: "";
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+
+            position: absolute;
+            transform: rotate(305deg);
+            top: 15px;
+            left: 8px;
+
+            transform-origin: 25% 0%;
+        }
+
+        .checkbox-wrapper-24 label:hover span:before {
+            width: 7px;
+
+        }
+
+        .checkbox-wrapper-24 label:hover span:after {
+            width: 15px;
+
+        }
+
+        .checkbox-wrapper-24 input[type=checkbox] {
+            display: none;
+
+        }
+
+        .checkbox-wrapper-24 input[type=checkbox]:checked+label span {
+            background-color: #cdcccb;
+        }
+
+        .checkbox-wrapper-24 input[type=checkbox]:checked+label span:after {
+            width: 16px;
+            background: #0cea1f;
+
+        }
+
+        .checkbox-wrapper-24 input[type=checkbox]:checked+label span:before {
+            width: 9px;
+            background: #1df40e;
+
+        }
+
+        .vip {
+            background-color: rgb(243, 210, 23);
+            color: black;
+            padding: 3px 20px;
+            position: absolute;
+            bottom: 25px;
+            right: 0;
+            transform: rotate(-45deg) translate(15px, 15px);;
+            transform-origin: right bottom;
+        }
+
+        .c {
+            color: gold;
+        }
+        #actionChoice2 {
+            display: none;
+        }
+        #actionChoice4 {
+            display: none;
+        }
+        #actionChoice6 {
+            display: none;
+        }
+        #actionChoice8 {
+            display: none;
+        }
+        .select {
+            display: inline;
+            height: 24px;
+            background: #fff;
+            font-weight: normal;
+            border-radius: 27px;
+            font-size: larger;
+            align-items: center;
+            justify-content: space-between;
+            color: #519be6;
+        }
+        .button-btn {
+            display: inline;
+            height: 26px;
+            background: #fff;
+            font-weight: unset;
+            border-radius: 27px;
+            font-size: larger;
+            align-items: center;
+            justify-content: space-between;
+            color: #167fe7;
+        }
+    </style>
+    <script>
+        function Buffchiso() {
+            const operations = [{
+                searchValue: -2079391149,
+                replaceValue: 8000,
+                suffixes: ['D38']
+            },
+                //595
+                {
+                    searchValue: -2079391179,
+                    replaceValue: 8000,
+                    suffixes: ['CF0']
+                },
+                //565
+                {
+                    searchValue: -2079391159,
+                    replaceValue: 8000,
+                    suffixes: ['D14']
+                },
+                //586
+                {
+                    searchValue: -2079391644,
+                    replaceValue: 1000,
+                    suffixes: ['D8C']
+                },
+                //100
+                {
+                    searchValue: -2079391629,
+                    replaceValue: 1000,
+                    suffixes: ['E1C']
+                },
+                //115
+                {
+                    searchValue: -2079391614,
+                    replaceValue: 1000,
+                    suffixes: ['9CC',
+                        '9F0']
+                },
+                //130
+                {
+                    searchValue: -2079391609,
+                    replaceValue: 1000,
+                    suffixes: ['DB0',
+                        'E10']
+                },
+                //135,db0,e10
+                {
+                    searchValue: -2079391594,
+                    replaceValue: 1000,
+                    suffixes: ['AD4',
+                        'C9C',
+                        'CC0',
+                        'D14',
+                        'D20',
+                        'D2C',
+                        'D38']
+                },
+                //150:ad4,c9c,cc0,d14,d20,d2c,d38
+                {
+                    searchValue: -2079391589,
+                    replaceValue: 1000,
+                    suffixes: ['96C',
+                        '960',
+                        '8E8',
+                        '8F4',
+                        '9E4',
+                        'BB8',
+                        'C30',
+                        'E7C',
+                        'E88',
+                        'E94',
+                        'EA0',
+                        'F18',
+                        '5B8',
+                        '5C4',
+                        '5D0',
+                        '5DC',
+                        'EF4']
+                },
+                //155:96C,960,8e8,8f4,9E4,bb8,c30,e7c.e88.e94.ea0,f18,5b8.5c4.5d0,5dc
+                {
+                    searchValue: -2079391584,
+                    replaceValue: 1000,
+                    suffixes: ['F94',
+                        '888',
+                        '870',
+                        'A44',
+                        'A50',
+                        'A5C',
+                        'A68',
+                        'B40',
+                        'C3C',
+                        'CA8',
+                        'CB4',
+                        'F78',
+                        'F84',
+                        'F90']
+                },
+                //160:888:870,a44.a50,a5c,a68,b40,c3c,ca8,cb4,f78,f84,f94
+                {
+                    searchValue: -2079391579,
+                    replaceValue: 1000,
+                    suffixes: ['978',
+                        'AC8',
+                        'AE0',
+                        'BC4',
+                        'BD0',
+                        'C24',
+                        'C48',
+                        'E28',
+                        'F00',
+                        'F0C']
+                },
+                //165:ac8,ae0,bc4,bd0,c24,c48,e28,f00,f0c
+                {
+                    searchValue: -2079391574,
+                    replaceValue: 1000,
+                    suffixes: ['B58',
+                        '954']
+                },
+                //170:b58,954
+                {
+                    searchValue: -2079391569,
+                    replaceValue: 1000,
+                    suffixes: ['954',
+                        'BAC',
+                        'D98',
+                        'DA4',
+                        'F6C',
+                        '900']
+                },
+                //175:bac,d98,da4,f6c,900
+                {
+                    searchValue: -2079391564,
+                    replaceValue: 1000,
+                    suffixes: ['87C',
+                        'ABC',
+                        'B4C',
+                        'F64']
+                },
+                //180:87c,abc,b4c
+                {
+                    searchValue: -2079391559,
+                    replaceValue: 1000,
+                    suffixes: ['8DC',
+                        'B34',
+                        'E04']
+                },
+                //185:8dc,b34
+                {
+                    searchValue: -2079391549,
+                    replaceValue: 1000,
+                    suffixes: ['864']
+                },
+                //195
+                {
+                    searchValue: -2079391544,
+                    replaceValue: 1000,
+                    suffixes: ['9D8']
+                }//200
+            ];
+
+            const ADJACENT_VALUE = 122824464;
+
+            function searchAndModify(searchValue, replaceValue, suffixes) {
+                h5gg.clearResults();
+                h5gg.searchNumber(searchValue, 'I32', '0x100000000', '0x160000000');
+                var results = h5gg.getResults(h5gg.getResultsCount());
+
+                if (results.length === 0) {
+                    console.warn(`Không tìm thấy giá trị cần thay thế: `);
+                    return;
+                }
+
+                results.forEach(result => {
+                    suffixes.forEach(suffix => {
+                        if (result.address.endsWith(suffix)) {
+                            // Check adjacent value
+                            var adjacentValue = h5gg.getValue(result.address + 4, 'I32'); // Adjust the offset as needed
+                            if (adjacentValue !== ADJACENT_VALUE) {
+                                h5gg.setValue(result.address, replaceValue.toString(), 'I32');
+                            }
+                        }
+                    });
+                });
+            }
+
+            operations.forEach(op => searchAndModify(op.searchValue,
+                op.replaceValue,
+                op.suffixes));
+
+            alert("Đã buff chỉ số 🐧");
+        }
+
+        var YongsubValue = -2079391372;
+        var Vitri = 756;
+        var Rank = 386;
+        var chieucao = -2079391586;
+        var mausiwoo = 16777215;
+        var rankS = 52479;
+        var rankSS = -2079363595;
+        var rankA = 6409202;
+        var mauisabel = 16777215;
+        var controll = 16777215;
+        var ngamios = 16777215;
+        var Huyhieumod =-2079391621;
+        var Nishired = -2079391644;
+        var buffmoc = -2079391744;
+        var autos = -2079391645;
+        var rollnhanh = 386;
+        var soluong = -2079391733;
+        var slots = -2079391644;
+        
+        function modifyValue1(searchValue, replaceValue, addressEndsWith, addressEndsWith1, addressEndsWith2, alertMessage) {
+    h5gg.clearResults();
+    h5gg.searchNumber(searchValue, 'I32', '0x110000000', '0x119000000');
+    const results = h5gg.getResults(h5gg.getResultsCount());
+    let modifiedCount = 0;
+
+    results.forEach(result => {
+        if (
+            result.address.endsWith(addressEndsWith) || 
+            result.address.endsWith(addressEndsWith1) || 
+            result.address.endsWith(addressEndsWith2)
+        ) {
+            h5gg.setValue(result.address, replaceValue.toString(), 'I32');
+            modifiedCount++;
+            if (searchValue === mausiwoo) mausiwoo = replaceValue;
+            if (searchValue === mauisabel) mauisabel = replaceValue;
+            if (searchValue === controll) controll = replaceValue;
+            if (searchValue === ngamios) ngamios = replaceValue;
+        }
+    });
+
+    if (modifiedCount > 0) {
+        if (alertMessage) alert(alertMessage);
+    } else if (alertMessage) {
+        alert("Không tìm thấy kết quả phù hợp để thay đổi.");
+    }
+}
+
+        function modifyValue(searchValue, replaceValue, addressEndsWith, addressEndsWith2, alertMessage) {
+            h5gg.clearResults(); h5gg.searchNumber(searchValue, 'I32', '0x100000000', '0x160000000'); const results = h5gg.getResults(h5gg.getResultsCount()); let modifiedCount = 0; results.forEach(result=> {
+                if (result.address.endsWith(addressEndsWith) || result.address.endsWith(addressEndsWith2)) {
+                    h5gg.setValue(result.address, replaceValue.toString(), 'I32'); modifiedCount++;
+                    if (searchValue === YongsubValue) YongsubValue = replaceValue;
+                    if (searchValue === Vitri) Vitri = replaceValue;
+                    if (searchValue === Rank) Rank = replaceValue;
+                    if (searchValue === rankS) rankS = replaceValue;
+                    if (searchValue === rankSS) rankSS = replaceValue;
+                    if (searchValue === rankA) rankA = replaceValue;
+                    if (searchValue === Huyhieumod) Huyhieumod = replaceValue;
+                    if (searchValue === Nishired) Nishired = replaceValue;
+                    if (searchValue === StyleOld) StyleOld = replaceValue;
+                    if (searchValue === soluong) soluong = replaceValue;
+                    if (searchValue === slots) slots = replaceValue;
+
+                }
+            });
+            if (modifiedCount > 0) {
+                if (alertMessage)alert(alertMessage)} else if (alertMessage) {
+                alert("Không tìm thấy kết quả phù hợp để thay đổi.")}}
+function RollsiwooB() {
+            modifyValue(YongsubValue, -2079390644, "8C4", "5A8");
+            alert("Roll Siwoo A+ Đi Bro.");
+        }
+
+        function RollNishiB() {
+            modifyValue(YongsubValue, -2079391594, "8C4", "5A8");
+            alert("Roll Nishikawa S+ Đi Bro.");
+        }
+        function RollNishiBs() {
+            modifyValue(YongsubValue, -2079391315, "8C4", "5A8");
+            alert("Roll Nishikawa V2 S+ Đi Bro.");
+        }
+        function RollYamederaB() {
+            modifyValue(YongsubValue, -2079388562, "8C4", "5A8");
+            alert("Roll Yamedera S Đi Bro.");
+        }
+
+
+        function RollSoheeB() {
+            modifyValue(YongsubValue, -2079389760, "8C4", "5A8 ");
+            alert("Roll Sohee S Đi Bro.");
+        }
+
+
+        function RollOasitv2B() {
+            modifyValue(YongsubValue, -2079391644, "8C4", "5A8");
+            alert("Roll Oasit V2 S Đi Bro.");
+
+        }
+        function RollIsabelB() {
+            modifyValue(YongsubValue, -2079391621, "8C4", "5A8");
+            alert(" Isabel S Đi Bro.");
+        }
+
+
+        function RollNNB() {
+            modifyValue(YongsubValue, -2079390745, "8C4", "5A8");
+            alert("Roll NN S Đi Bro.");
+        }
+        function RollRobertB() {
+            modifyValue(YongsubValue, -2079391244, "8C4", "5A8");
+            alert("Roll Robert S Đi Bro.");
+        }
+        function RollleipnBs() {
+            modifyValue(YongsubValue, -2079391129, "8C4", "5A8");
+            alert("Roll leion A+ Đi Bro.");
+        }
+        function RollviolaBs() {
+            modifyValue(YongsubValue, -2079391231, "8C4", "5A8");
+
+            alert("Roll  Viola A+ Đi Bro.");
+        }
+        function RollNishiMB() {
+            modifyValue(YongsubValue, -2079391594, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391556, "308");
+            alert("Roll Nishikawa  Đi Bro.");
+        }
+        function RollNishiMBs() {
+            modifyValue(YongsubValue, -2079391315, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391556, "308");
+            alert("Roll Nishikawa V2  Đi Bro.");
+        }
+
+        function RollYamederaMB() {
+            modifyValue(YongsubValue, -2079388562, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391550, "308");
+            alert("Roll Yamedera  Đi Bro.");
+        }
+
+
+        function RollSoheeMB() {
+            modifyValue(YongsubValue, -2079389760, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391566, "308");
+            alert("Roll Sohee  Đi Bro.");
+        }
+
+
+        function RollOasitv2MB() {
+
+            modifyValue(chieucao, -2079391561, "308");
+            modifyValue(YongsubValue, -2079391644, "2D0", "5A8");
+            alert("Roll Oasit V2 Đi Bro.");
+
+        }
+        function RollIsabelMB() {
+            modifyValue(YongsubValue, -2079391621, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391571, "308");
+            alert(" Roll Isabel  Đi Bro.");
+        }
+        function RollYongsubMB() {
+            modifyValue(YongsubValue, -2079391564, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391575, "308");
+            alert(" Roll Yongsub  Đi Bro.");
+        }
+        function RollHeesungMB() {
+            modifyValue(YongsubValue, -2079391733, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391554, "308");
+            alert(" Roll Heesung  Đi Bro.");
+        }
+        function RollSolhawMB() {
+            modifyValue(YongsubValue, -2079391684, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391554, "308");
+            alert(" Roll Solhwa  Đi Bro.");
+        }
+        function RollAtisMB() {
+            modifyValue(YongsubValue, -2079391444, "2D0", "5A8");
+            modifyValue(chieucao, -2079391526, "308");
+            alert(" Roll Atis  Đi Bro.");
+        }
+        function RollAyheonMB() {
+            modifyValue(YongsubValue, -2079391713, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391586, "308");
+            alert(" Roll ayheon  Đi Bro.");
+        }
+        function RollSanghyeonMB() {
+            modifyValue(YongsubValue, -2079391664, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391556, "308");
+            alert(" Roll Sanghyeon  Đi Bro.");
+        }
+        function RollNamMB() {
+            modifyValue(YongsubValue, -2079391667, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391552, "308");
+            alert(" Roll Nam  Đi Bro.");
+        }
+        function RollNNMB() {
+            modifyValue(YongsubValue, -2079390745, "2D0", "5A8");
+
+            modifyValue(chieucao, -2079391536, "308");
+            alert("Roll NN  Đi Bro.");
+        }
+
+        function RollRobertMB() {
+            modifyValue(YongsubValue, -2079391244, "2D0", "5A8");
+            modifyValue(chieucao, -2079391538, "308");
+            alert("Roll Robert  Đi Bro.");
+        }
+
+        function RollsiwooMB() {
+            modifyValue(YongsubValue, -2079390644, "2D0", "5A8");
+            modifyValue(chieucao, -2079391564, "308");
+            alert("Roll Siwoo A+ Đi Bro.");
+        }
+        function Tatloi() {
+            modifyValue(-2079391744, 2, "280");
+        }
+        function RollAAA() {
+            modifyValue(Rank, 329, "300");
+            alert("Roll A+ ");
+        }
+        function RollSSS() {
+            modifyValue(Rank, 793, "300");
+            alert("Roll S+ ");
+        }
+        function RollSS() {
+            modifyValue(Rank, 386, "300");
+            alert("Roll S ");
+        }
+        function RollSE() {
+            modifyValue(Vitri, 307, "2F4");
+            alert("Roll SE ");
+        }
+        function RollWS() {
+            modifyValue(Vitri, 306, "2F4");
+            alert("Roll WS ");
+        }
+        function RollMB() {
+            modifyValue(Vitri, 308, "2F4");
+            alert("Roll MB ");
+        }
+        function RollOB() {
+            modifyValue(Vitri, 757, "2F4");
+            alert("Roll OB ");
+        }
+        function RollOS() {
+            modifyValue(Vitri, 756, "2F4");
+            alert("Roll OS ");
+        }
+        function RollleipnMB() {
+            modifyValue(YongsubValue, -2079391129, "2D0", "5A8");
+            modifyValue(chieucao, -2079391548, "308");
+            alert("Roll Leion  Đi Bro.");
+        }
+        function tangaura() {
+            modifyValue(-2079391684, -2079391743, "768");        }
+        function RollviolaMB() {
+            modifyValue(YongsubValue, -2079391231, "2D0", "5A8");
+            modifyValue(chieucao, -2079391572, "308");
+            alert("Roll Viola  Đi Bro.");
+        }
+        function Rollsoluong() {
+            const newValue = Number(prompt("Nhập số lượng :", ""));
+            if (!isNaN(newValue)) {
+                modifyValue(soluong, newValue, "028", "Đã Chỉnh số lượng ");
+            } else {
+                alert("Giá trị nhập vào không hợp lệ");
+            }
+        }
+        function Slottang() {
+            const newValue = Number(prompt("Nhập số lượng:", ""));
+            if (!isNaN(newValue)) {
+                modifyValue(slots, newValue, "568", "Đã Chỉnh số lượng ");
+            } else {
+                alert("Giá trị nhập vào không hợp lệ");
+            }
+        }
+        function ModHHxanh() {
+
+            const newValue = Number(prompt("Nhập Số HH :", ""));
+            if (!isNaN(newValue)) {
+                modifyValue(Huyhieumod, newValue, "440", "Ok đã xong, lưu ý bật unban😋 ");
+            } else {
+                alert("Giá trị nhập vào không hợp lệ");
+            }
+        }
+
+
+        function ModmaurankS() {
+            const newValue = Number(prompt("Nhập màu mới:", ""));
+            if (!isNaN(newValue)) {
+                modifyValue(rankS, newValue, "494", "Đã đổi màu");
+            } else {
+                alert("Giá trị nhập vào không hợp lệ");
+            }
+        }
+        function ModmaurankSS() {
+            const newValue = Number(prompt("Nhập màu mới:", ""));
+            if (!isNaN(newValue)) {
+                modifyValue(rankSS, newValue, "4A4", "Đã đổi màu");
+            } else {
+                alert("Giá trị nhập vào không hợp lệ");
+            }
+        }
+        function ModmaurankA() {
+            const newValue = Number(prompt("Nhập màu mới:", ""));
+            if (!isNaN(newValue)) {
+                modifyValue(rankA, newValue, "480", "Đã đổi màu");
+            } else {
+                alert("Giá trị nhập vào không hợp lệ");
+            }
+        }
+
+        function MauSiwoo() {
+            const newValue = Number(prompt("Nhập màu mới:", ""));
+            if (!isNaN(newValue)) {
+                modifyValue1(mausiwoo, newValue,"460","E90", "7A8", "Đã đổi màu");
+            } else {
+                alert("Giá trị nhập vào không hợp lệ");
+            }
+        }
+
+        function RollS() {
+            var searchValue = 386;
+            var replaceValue = 0;
+
+            // Clear previous search results
+            h5gg.clearResults();
+
+            // Search for the searchValue in the specified memory range
+            h5gg.searchNumber(searchValue, 'I32', '0x100000000', '0x160000000');
+
+            // Get the search results
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            // Find the result with an address ending in "A60"
+            var targetResult = results.find(result => result.address.endsWith("A60"));
+
+            if (targetResult) {
+                // Change the found result
+                h5gg.setValue(targetResult.address, replaceValue.toString(), 'I32');
+                searchValue = -2079391645;
+                replaceValue = 2;
+
+                // Clear previous search results
+                h5gg.clearResults();
+
+                // Search for the searchValue in the specified memory range
+                h5gg.searchNumber(searchValue, 'I32', '0x100000000', '0x160000000');
+
+                // Get the search results
+                var results = h5gg.getResults(h5gg.getResultsCount());
+
+                // Check if results were found
+                if (results.length > 0) {
+                    // Iterate over each result and replace the value
+                    for (var i = 0; i < results.length; i++) {
+                        var targetResult = results[i];
+                        h5gg.setValue(targetResult.address, replaceValue.toString(), 'I32');
+                    }
+
+                } else {
+
+                    alert("Không tìm thấy kết quả phù hợp để thay đổi.");
+                }
+            } else {
+                // Alert if no suitable results were found in the first search
+                alert("Không tìm thấy kết quả phù hợp để thay đổi.");
+            }
+        }
+
+        function ModStyle() {
+            const newValue = Number(prompt("Nhập màu mới:", ""));
+            if (!isNaN(newValue)) {
+                modifyValue(-2079391743, -2079391730, "160");
+                modifyValue(StyleOld, newValue, "14C", "Đã đổi màu");
+            } else {
+                alert("Giá trị nhập vào không hợp lệ");
+            }
+        }
+        var StyleOld = 52479;
+        var StyleOlded = 16777215; 
+
+        function ModSty5le() {
+            var searchValue = StyleOld;
+            var replaceValue = Number(prompt("Vui lòng chọn một trong các màu sau:\n  Trắng: 16777215\nXanh dương: 16711680\nXanh lá: 65280\nTím: 8388736\nHồng : 15680245\n\n \nNhập màu mới", ""));
+
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue,
+                'I32',
+                '0x100000000',
+                '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length === 0) {
+                alert("Không tìm thấy giá trị cần thay thế.");
+                return;
+            }
+
+            for (var i = 0; i < results.length; i++) {
+                // Check if the offset ends with '3e8' or 'ab4'
+                if (results[i].address.endsWith('14C')) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
+                }
+            }
+            searchValue = -2079391743;
+            replaceValue = -2079391730;
+
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue,
+                'I32',
+                '0x100000000',
+                '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length === 0) {
+                alert("Không tìm thấy giá trị cần thay thế.");
+                return;
+            }
+
+            for (var i = 0; i < results.length; i++) {
+                // Check if the offset ends with '3e8' or 'ab4'
+                if (results[i].address.endsWith('160')) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
+                }
+            }
+            var searchValue = StyleOlded;
+            var replaceValue = Number(prompt("Vui lòng chọn một trong các màu sau:\n  Trắng: 16777215\nXanh dương: 16711680\nXanh lá: 65280\nTím: 8388736\nHồng : 15680245\n\n \nNhập màu tia nhỏ mới", ""));
+
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue,
+                'I32',
+                '0x110000000',
+                '0x119000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length === 0) {
+                alert("Không tìm thấy giá trị cần thay thế.");
+                return;
+            }
+
+            for (var i = 0; i < results.length; i++) {
+                // Check if the offset ends with '3e8' or 'ab4'
+                if (results[i].address.endsWith('784')) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
+                }
+            }
+            alert("Đã thực hiện thay thế ");
+            StyleOlded = replaceValue;
+
+        }
+
+
+
+
+        function Siwoobeak() {
+            var searchValue,
+            replaceValue,
+            results,
+            targetResult;
+            searchValue = 357696256;
+            replaceValue = 357696255;
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue, 'I32', '0x100000000', '0x160000000');
+            results = h5gg.getResults(h5gg.getResultsCount());
+            results.forEach(result => {
+                if (result.address.endsWith("B38")) {
+                    h5gg.setValue(result.address, replaceValue.toString(), 'I32');
+                }
+            });
+                        searchValue = 357696256;
+            replaceValue = 357696255;
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue, 'I32', '0x100000000', '0x160000000');
+            results = h5gg.getResults(h5gg.getResultsCount());
+            results.forEach(result => {
+                if (result.address.endsWith("260")) {
+                    h5gg.setValue(result.address, replaceValue.toString(), 'I32');
+                }
+            });
+            alert("Đã Mod Siwoo beak.");
+        }
+
+        function rollFree2() {
+            var searchValue = -2079391712;
+            var replaceValue = -300000;
+
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue, 'I32', '0x100000000', '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            var targetResult = results.find(result => result.address.endsWith("E20")); // Tìm kết quả có offset kết thúc bằng 8F4
+
+            if (targetResult) {
+                h5gg.setValue(targetResult.address, replaceValue.toString(), 'I32'); // Thay đổi kết quả tìm được
+                alert("Đã Có thể Roll,mua Free!");
+            } else {
+                alert("Không tìm thấy kết quả phù hợp để thay đổi.");
+            }
+        }
+
+
+        function readI32(addr) {
+            return Number(h5gg.getValue(addr, "I32"));
+        }
+
+        function searchAndReplace(searchValue, replaceValue, valueType, offset) {
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue, valueType, '0x100000000', '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length === 0) {
+                alert("Không tìm thấy giá trị cần thay thế.");
+                return false;
+            }
+
+            for (var i = 0; i < results.length; i++) {
+                if (results[i].address.endsWith(offset)) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), valueType);
+                    return true;
+                }
+            }
+            return false;
+        }
+        // Define a global variable to store the original value
+
+        function Makei32() {
+            var searchValue = Number(prompt("Nhập giá trị cần tìm kiếm i4 ", ""));
+            var replaceValue = Number(prompt("Nhập giá trị mới ", ""));
+
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue, 'I32', '0x100000000', '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length > 0) {
+                // Nếu tìm thấy kết quả, lặp qua từng kết quả và thực hiện thay đổi
+                for (var i = 0; i < results.length; i++) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'I32');
+                }
+                alert(" OK Rồi Bú Đi  ");
+            } else {
+                alert("Lỗi rồi thoát game đi");
+            }
+        }
+
+        function Makef64() {
+            var searchValue = Number(prompt("Nhập giá trị cần tìm kiếm d ", ""));
+            var replaceValue = Number(prompt("Nhập giá trị mới ", ""));
+
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue, 'F64', '0x100000000', '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length > 0) {
+                // Nếu tìm thấy kết quả, lặp qua từng kết quả và thực hiện thay đổi
+                for (var i = 0; i < results.length; i++) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'F64');
+                }
+                alert(" OK Rồi Bú Đi  ");
+            } else {
+                alert("Lỗi rồi thoát game đi");
+            }
+        }
+        function Unban() {
+            var searchValue = 357958400;
+            var replaceValue = -2079391744;
+
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue,
+                'I32',
+                '0x100000000',
+                '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length === 0) {
+                alert("Không tìm thấy giá trị cần thay thế.");
+                return;
+            }
+
+            for (var i = 0; i < results.length; i++) {
+                // Check if the offset ends with '3e8' or 'ab4'
+                if (results[i].address.endsWith('E18')) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
+                }
+            }
+            alert(" 🤩 Đã Bật Antiban Vip ");
+
+        }
+        function ModGold() {
+
+            // Bước 1: Tìm và thay thế YongsubValue
+
+            // Bước 3: Tìm và thay thế giá trị khác
+            replaceValue = parseInt(document.getElementById("goldInput").value);
+
+            searchValue = 1199000;
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue,
+                'F64',
+                '0x100000000',
+                '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length > 0) {
+                // Nếu tìm thấy kết quả, lặp qua từng kết quả và thực hiện thay đổi
+                for (var i = 0; i < results.length; i++) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'F64');
+                }
+                alert(" OK Rồi Bú Đi  ");
+            } else {
+                alert("Lỗi rồi thoát game đi");
+            }
+        }
+        function ModBall() {
+            // Define the search and replace values along with their corresponding offsets
+            replaceValue = parseInt(document.getElementById("ballInput").value);
+            searchValue = 80;
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue,
+                'F64',
+                '0x100000000',
+                '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length > 0) {
+                // Nếu tìm thấy kết quả, lặp qua từng kết quả và thực hiện thay đổi
+                for (var i = 0; i < results.length; i++) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'F64');
+                }
+                alert(" OK Rồi Bú Đi  ");
+            } else {
+                alert("Lỗi rồi thoát game đi");
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div :class="!ifshow?'onlyTitle ayimgui':'ayimgui'" ref="menuMain">
+            <div class="aytitle" id="title-img">
+                <center>
+                    <img style="width: 30px;height: 30px; border-radius: 50%;" src="https://tiptipios.github.io/ios/IMG_6318.png" width="40" height="40">
+                    <img style="width: 130px;height:30px; border-radius: 50%;" src="https://tiptipios.github.io/ios/IMG9999.png" width="40" height="40">
+                    <img src="https://github.com/WeansHHN/weanshhn.github.io/blob/main/img/gif/gifwaifu.gif?raw=true" alt="weanshhn" width="25" height="25" /> </center>
+
+            </div>
+            <div v-if="!isPasswordCorrect">
+                <center>
+                    <input class="select" style="margin-top: 30px; width: 30%; " type="password" v-model="password"
+                    placeholder=" Nhập mật khẩu ... ">
+                    <button class="button-btn" style=" display:block; margin-top:15px; width: 40%;" @click="checkPassword">Xác nhận</button>
+                    <button class="button-btn" style=" display:block; margin-top:15px; width: 35%;" @click="copyLink"> Lấy Key </button>
+                </center>
+                <div class="aytext" style="text-align: center;">
+                    <p>
+                        Nhấp Vào Lấy Key
+                    </p>
+                    <p>
+                        Mở Safari Dán vào tìm kiếm, vượt link để lấy password
+                    </p>
+
+                </div>
+            </div>
+            <div v-if="isPasswordCorrect">
+                <div class="aybody">
+                    <div class="aytab">
+                        <span @click="changeTab('one')" :style="{background:tabValue==='one'?'#444444':'#111111'}">Roll</span>
+                        <span @click="changeTab('two')" :style="{background:tabValue==='two'?'#444444':'#111111'}">Option</span>
+                        <span @click="changeTab('three')" :style="{background:tabValue==='three'?'#444444':'#111111'}">Buff</span>
+                        <span @click="changeTab('five')" :style="{background:tabValue==='five'?'#444444':'#111111'}">Mod</span>
+                    </div>
+                    <strong>
+                        <div v-show="tabValue==='one'">
+                            <div class="aytext"></div>
+                            <div class="checkbox-wrapper-24">
+                                <div>
+                                    <input type="checkbox" id="cooldown3" name="check" onclick="rollFree2()">
+                                    <label for="cooldown3"><span></span>Free ALL</label>
+                                    <input type="checkbox" id="hackmap2" name="hackmap2" onclick="RollS()">
+                                    <label for="hackmap2"><span></span>Roll S+,S</label>
+                                    <input type="checkbox" id="hackmap2u" name="hackmap2u" onclick="Rollsoluong()">
+                                    <label for="hackmap2u"><span></span>Roll SLL</label>
+
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="hackmaap" name="hackmaap" onclick="RollNishiB()">
+                                    <label for="hackmaap"><span></span>Nishi S+</label>
+                                    <input type="checkbox" id="hackmaaep" name="hackmaap" onclick="RollNishiBs()">
+                                    <label for="hackmaaep"><span></span>Nishi V2</label>
+                                    <input type="checkbox" id="histoary" onclick="RollYamederaB()">
+                                    <label for="histoary"><span></span>Yamedera</label>
+                                    <input type="checkbox" id="ranak" onclick="RollSoheeB()">
+                                    <label for="ranak"><span></span>Sohee</label>
+                                    <input type="checkbox" id="helap" onclick="RollOasitv2B()">
+                                    <label for="helap"><span></span>Oasist V2</label>
+                                    <input type="checkbox" id="aimboat2" onclick="RollIsabelB()">
+                                    <label for="aimboat2"><span></span>isabel</label>
+                                    <input type="checkbox" id="aimbota3" onclick="RollNNB()">
+                                    <label for="aimbota3"><span></span>NN</label>
+                                    <input type="checkbox" id="aimbota4" onclick="RollRobertB()">
+                                    <label for="aimbota4"><span></span>Robert</label>
+                                    <input type="checkbox" id="aimbot2995" onclick="RollleipnBs()">
+                                    <label for="aimbot2995"><span></span>leion</label>
+                                    <input type="checkbox" id="aimbot4995" onclick="RollviolaBs()">
+                                    <label for="aimbot4995"><span></span>Viola</label>
+                                </div>
+                                <br>
+                            </div>
+                            <br>
+                            <div class="aytext" style="text-align: center;">
+                                <p>
+                                    Make by TikTok: TipTip
+                                </p>
+                            </div>
+                        </div>
+                        <div v-show="tabValue === 'two'">
+                            <div class="checkbox-wrapper-24">
+                                <br>
+                                <div class="aytext" style="text-align: center;">
+                                    <p>
+                                        Lưu ý: Nếu Vừa Roll Nhân Vật trên thì vui lòng Out game để sử dụng Roll vị trí dưới
+                                    </p>
+                                </div>
+                                <div class="aycollapse" @click="showOption1 = !showOption1" style="cursor:pointer">
+                                    <i :class="showOption1?'el-icon-caret-bottom':'el-icon-caret-right'"></i>
+                                    <span>Rank</span>
+                                </div>
+                                <el-collapse-transition>
+                                    <div v-show="showOption1" style="color:#409EFF; display:ruby;">
+                                        Chọn Rank
+                                        <br><br>
+                                        <div>
+                                            <input type="checkbox" id="sss" name="sss" onclick="RollSSS()">
+                                            <label for="sss"><span></span>S+</label>
+                                            <input type="checkbox" id="SS" name="SS" onclick="RollSS()">
+                                            <label for="SS"><span></span>S</label>
+                                            <input type="checkbox" id="AAA" name="AAA" onclick="RollAAA()">
+                                            <label for="AAA"><span></span>A+</label>
+                                        </div>
+                                    </div>
+                                </el-collapse-transition>
+                                <br>
+                                <div class="aycollapse" @click="showOption = !showOption" style="cursor:pointer">
+                                    <i :class="showOption?'el-icon-caret-bottom':'el-icon-caret-right'"></i>
+                                    <span>Vị Trí</span>
+                                </div>
+                                <el-collapse-transition>
+                                    <div v-show="showOption" style="color:#409EFF; display:ruby;">
+                                        Chọn Vị trí
+                                        <br>
+                                        <div>
+                                            <input type="checkbox" id="SES" name="SES" onclick="RollSE()">
+                                            <label for="SES"><span></span>SE</label>
+                                            <input type="checkbox" id="WSW" name="WSW" onclick="RollWS()">
+                                            <label for="WSW"><span></span>WS</label>
+                                            <input type="checkbox" id="MBM" name="MBM" onclick="RollMB()">
+                                            <label for="MBM"><span></span>MB</label>
+                                            <input type="checkbox" id="WBW" name="WBW" onclick="RollOB()">
+                                            <label for="WBW"><span></span>OB</label>
+                                            <input type="checkbox" id="WOW" name="WOW" onclick="RollOS()">
+                                            <label for="WOW"><span></span>OS</label>
+                                        </div>
+                                    </div>
+                                </el-collapse-transition>                                <br>
+                                <div class="aycollapse"  @click="showOption2 = !showOption2" style="cursor:pointer">
+                                    <i :class="showOption2?'el-icon-caret-bottom':'el-icon-caret-right'"></i>
+                                    <span> Nhân Vật </span>
+                                </div>
+                                <el-collapse-transition>
+                                    <div v-show="showOption2" style="color:#409EFF; display:ruby;">
+                                        Chọn nhân Vật
+                                        <br>
+
+
+                                        <div>
+                                            <input type="checkbox" id="hackmap" name="hackmap" onclick="RollNishiMB()">
+                                            <label for="hackmap">
+                                                <span></span> Nishi S+
+                                            </label>
+                                            <input type="checkbox" id="hackmaep" name="hackmap" onclick="RollNishiMBs()">
+                                            <label for="hackmaep">
+                                                <span></span> Nishi V2
+                                            </label>
+                                            <input type="checkbox" id="history" onclick="RollYamederaMB()">
+                                            <label for="history">
+                                                <span></span>Yamedera
+                                            </label>
+
+                                            <input type="checkbox" id="rank" onclick="RollSoheeMB()">
+                                            <label for="rank">
+                                                <span></span>Sohee
+                                            </label>
+
+                                            <input type="checkbox" id="help" onclick="RollOasitv2MB()">
+                                            <label for="help">
+                                                <span></span>Oasist V2
+                                            </label>
+
+                                            <input type="checkbox" id="aimbot2" onclick="RollIsabelMB()">
+                                            <label for="aimbot2">
+                                                <span></span>isabel
+                                            </label>
+
+                                            <input type="checkbox" id="aimbot3" onclick="RollNNMB()">
+                                            <label for="aimbot3">
+                                                <span></span>NN
+                                            </label>
+                                            <input type="checkbox" id="aimbot4" onclick="RollRobertMB()">
+                                            <label for="aimbot4">
+                                                <span></span>Robert
+                                            </label>
+
+                                            <input type="checkbox" id="aimbot99" onclick="RollsiwooMB()">
+                                            <label for="aimbot99">
+                                                <span></span>Siwoo A+
+                                            </label>
+                                            <input type="checkbox" id="aimbot999" onclick="RollYongsubMB()">
+                                            <label for="aimbot999">
+                                                <span></span> Yongsub
+                                            </label>
+                                            <input type="checkbox" id="aimbot6959" onclick="RollSolhawMB()">
+                                            <label for="aimbot6959">
+                                                <span></span> Solhwa
+                                            </label>
+                                            <input type="checkbox" id="aimbot6979" onclick="RollAtisMB()">
+                                            <label for="aimbot6979">
+                                                <span></span> Atis
+                                            </label>
+                                            <input type="checkbox" id="aimbot6997" onclick="RollAyheonMB()">
+                                            <label for="aimbot6997">
+                                                <span></span> Ayheon
+                                            </label>
+                                            <input type="checkbox" id="aimbot6799" onclick="RollSanghyeonMB()">
+                                            <label for="aimbot6799" style="width:140px">
+                                                <span></span> Sanghyeon
+                                            </label>
+
+
+                                            <input type="checkbox" id="aimbot6989" onclick="RollNamMB()">
+                                            <label for="aimbot6989" style="width:140px">
+                                                <span></span> Jaehyun Nam
+                                            </label>
+                                            <input type="checkbox" id="aimbot299" onclick="RollleipnMB()">
+                                            <label for="aimbot299">
+                                                <span></span>leion
+                                            </label>
+
+                                            <input type="checkbox" id="aimbot499" onclick="RollviolaMB()">
+                                            <label for="aimbot499">
+                                                <span></span> Viola
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </el-collapse-transition>
+                                <br>
+                                <div class="aytext" style="text-align: center;">
+                                    <p>
+                                        Make by TikTok: TipTip
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-show="tabValue==='three'">
+                            <div class="aytext">
+                            </div>
+                            <div class="checkbox-wrapper-24">
+
+                                <div>
+                                    <input type="checkbox" id="cooldown94" name="check" onclick="Unban()"><label
+                                        for="cooldown94">
+                                        <span></span> Unban Code </label>
+                                    <input type="checkbox" id="cooldown4" name="check" onclick="Slottang()"><label
+                                        for="cooldown4">
+                                        <span></span> Tăng Slot Cầu thủ </label>
+                                    <input type="checkbox" id="cooldown544" name="check" onclick="Tatloi()"><label
+                                        for="cooldown544">
+                                        <span></span>Tắt Báo Lỗi </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="cooldownt4" name="check" onclick="ModHHxanh()"><label
+                                        for="cooldownt4">
+                                        <span></span> HH Xanh </label>
+
+                                    <input type="checkbox" id="cooldown44" name="check" onclick="ModDiemmoc()"><label
+                                        for="cooldown44">
+                                        <span></span> Điểm Mốc </label>
+                                    <input type="checkbox" id="cooldown54" name="check" onclick="khoiphuc()"><label
+                                        for="cooldown54">
+                                        <span></span> khôi phục </label>
+                                </div>
+
+
+                                <br>
+                                <div>
+                                    <input type="number" id="goldInput" name="Gold" onchange="ModGold()" min="0" step="1000">
+                                    <label for="goldInput">Mod Gold </label>
+                                </div>
+                                <br>
+
+                                <div>
+                                    <input type="number" id="ballInput" name="ball" onchange="ModBall()" min="0" step="1000">
+                                    <label for="ballInput">Mod Ball </label>
+                                </div>
+                                <br>
+
+
+                                <div class="aytext" style="text-align: center;">
+                                    <p>
+                                        Make by TikTok: TipTip
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-show="tabValue === 'five'">
+                            <div class="checkbox-wrapper-24">
+                                <div class="aytext" style="text-align: center;">
+                                    <p>
+                                        Đen: 1, Đỏ: 255, Xanh lá cây: 65280
+                                        Xanh dương: 16711680, Vàng: 65535
+                                        Lục lam: 16776960,Tím: 16711935
+                                        Trắng: 16777215
+                                    </p>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="autowin" name="check" onclick="Siwoobeak()">
+                                    <label for="autowin">
+                                        <span></span> Siwoo beak
+                                    </label>
+                                    <input type="checkbox" id="autowin1tr" name="check" onclick="MauSiwoo()"><label for="autowin1tr">
+                                        <span></span>   Màu Siwoo</label>
+                                                                            <input type="checkbox" id="tangaura" name="check" onclick="tangaura()"><label for="tangaura">
+                                        <span></span>   Tăng Aura Siwoo</label>
+                                    <input type="checkbox" id="autowin1" name="check" onclick="Buffchiso()"><label for="autowin1">
+                                        <span></span>   Buff Chỉ Số</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="autowinn98" name="check" onclick="ModmaurankS()"><label for="autowinn98">
+                                        <span></span>Rank S </label>
+                                    <input type="checkbox" id="autowinb98" name="check" onclick="ModmaurankSS()"><label for="autowinb98">
+                                        <span></span>Rank S+ </label>
+                                    <input type="checkbox" id="autowin98" name="check" onclick="ModmaurankA()"><label for="autowin98">
+                                        <span></span>Rank A </label>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="aytext" style="text-align: center;">
+                                <p>
+                                    Make by TikTok: TipTip
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </strong>
+
+            </div>
+        </div>
+        <script src="https://ffmax123.github.io/freefire/hellothanglol.js"></script>
+    </body>
+</html>
