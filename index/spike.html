@@ -491,7 +491,7 @@
             // Automatically hide after 3 seconds
             setTimeout(function() {
                 $(alertElement).alert('close');
-            }, 3000);
+            }, 10000);
         }
         function Buffchiso() {
             const operations = [{
@@ -1018,9 +1018,9 @@ function Tatloi() {
                 return;
             }
 
-            for (var i = 0; i < results.length && i < 4; i++) {
+            for (var i = 0; i < results.length; i++) {
                 // Check if the offset ends with '3e8' or 'ab4'
-                if (results[i].address.endsWith('DFC')) {
+                if (results[i].address.endsWith('3DFC')) {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
 
                 }
@@ -1706,7 +1706,7 @@ function Tatloi() {
                                     <input type="checkbox" id="cooldown4" name="check" onclick="Slottang()"><label
                                         for="cooldown4">
                                         <span></span> Tăng Slot Cầu thủ </label>
-                                     <input type="number" id="hhxanhInput" name="Gold" onchange="ModHHxanh()" min="0" step="1000"><label for="hhxanhInput">Mod HH xanh ( Bật Unban) </label>
+                                     <input type="number" id="hhxanhInput" name="Gold" onchange="ModHHxanh()" min="0" step="1000"><label for="hhxanhInput">HH xanh ( Bật Unban) </label>
 
 
                                     
