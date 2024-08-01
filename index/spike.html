@@ -956,21 +956,47 @@ function RollsiwooB() {
             modifyValue(chieucao, -2079391572, "308");
             showNotification("Roll Viola  Đi Bro.");
         }
-        function Rollsoluong() {
-            const newValue = Number(prompt("Nhập số lượng :", ""));
-            if (!isNaN(newValue)) {
-                modifyValue(soluong, newValue, "028", "Đã Chỉnh số lượng ");
-            } else {
-                showNotification("Giá trị nhập vào không hợp lệ");
-            }
+             function Rollsoluong() {
+        replaceValue = parseInt(document.getElementById("RollsoloungInput").value);
+                modifyValue(soluong, replaceValue, "028");
+                                showNotification(" Đã Chỉnh số lượng");
+
         }
         function Slottang() {
-            const newValue = Number(prompt("Nhập số lượng:", ""));
-            if (!isNaN(newValue)) {
-                modifyValue(slots, newValue, "568", "Đã Chỉnh số lượng ");
-            } else {
-                showNotification("Giá trị nhập vào không hợp lệ");
-            }
+         replaceValue = parseInt(document.getElementById("slotsInput").value);
+
+                modifyValue(slots, replaceValue, "568");
+                showNotification(" Đã Chỉnh số lượng");
+
+        }
+        
+
+        function ModmaurankS() {
+        replaceValue = parseInt(document.getElementById("RankSInput").value);
+
+            modifyValue(rankS, replaceValue, "494");
+                showNotification(" Đã Đổi Mảu");
+            
+        }
+        function ModmaurankSS() {
+        replaceValue = parseInt(document.getElementById("RankSSInput").value);
+
+                modifyValue(rankSS, replaceValue, "4A4");
+                showNotification(" Đã Đổi Mảu");
+
+        }
+        function ModmaurankA() {
+            replaceValue = parseInt(document.getElementById("RankAInput").value);
+            modifyValue(rankA, newValue, "480");
+                            showNotification(" Đã Đổi Mảu");
+
+        }
+
+        function MauSiwoo() {
+            replaceValue = parseInt(document.getElementById("MauSiwooInput").value);
+                modifyValue1(mausiwoo, newValue,"460","E90", "7A8");
+                showNotification(" Đã Đổi Mảu");
+
         }
           function khoiphuc() {
             modifyValue(hhxanh, 2, "DFC");
@@ -1028,43 +1054,6 @@ function Tatloi() {
             showNotification(" 🤩 Ok Rồi, Vô HL đập bóng nhận, mod xong chỉnh số hh về 2 rồi lưu ");
             hhxanh = replaceValue;
 
-        }
-            
-        
-
-
-        function ModmaurankS() {
-            const newValue = Number(prompt("Nhập màu mới:", ""));
-            if (!isNaN(newValue)) {
-                modifyValue(rankS, newValue, "494", "Đã đổi màu");
-            } else {
-                showNotification("Giá trị nhập vào không hợp lệ");
-            }
-        }
-        function ModmaurankSS() {
-            const newValue = Number(prompt("Nhập màu mới:", ""));
-            if (!isNaN(newValue)) {
-                modifyValue(rankSS, newValue, "4A4", "Đã đổi màu");
-            } else {
-                showNotification("Giá trị nhập vào không hợp lệ");
-            }
-        }
-        function ModmaurankA() {
-            const newValue = Number(prompt("Nhập màu mới:", ""));
-            if (!isNaN(newValue)) {
-                modifyValue(rankA, newValue, "480", "Đã đổi màu");
-            } else {
-                showNotification("Giá trị nhập vào không hợp lệ");
-            }
-        }
-
-        function MauSiwoo() {
-            const newValue = Number(prompt("Nhập màu mới:", ""));
-            if (!isNaN(newValue)) {
-                modifyValue1(mausiwoo, newValue,"460","E90", "7A8", "Đã đổi màu");
-            } else {
-                showNotification("Giá trị nhập vào không hợp lệ");
-            }
         }
 
         function RollS() {
@@ -1703,24 +1692,22 @@ function Tatloi() {
                                     <input type="checkbox" id="cooldown94" name="check" onclick="Unban()"><label
                                         for="cooldown94">
                                         <span></span> Unban Code </label>
-                                    <input type="checkbox" id="cooldown4" name="check" onclick="Slottang()"><label
-                                        for="cooldown4">
-                                        <span></span> Tăng Slot Cầu thủ </label>
-                                     <input type="number" id="hhxanhInput" name="Gold" onchange="ModHHxanh()" min="0" step="1000"><label for="hhxanhInput">HH xanh ( Bật Unban) </label>
+                                                                                                           <div>
+                                    <input type="number" id="RollsoloungInput" name="Gold" onchange="Rollsoluong()" min="0" step="1000"> <label for="RollsoloungInput">Roll SLL </label>
 
-
-                                    
-
-    
                                 </div>
+                                  <div>
+                                    <input type="number" id="slotsInput" name="Gold" onchange="Slottang()" min="0" step="1000">                                 <label for="slotsInput">Slots Cầu thủ </label>
 
+                                </div>
+                                <div>
+                                    <input type="number" id="hhxanhInput" name="Gold" onchange="ModHHxanh()" min="0" step="1000">                                 <label for="hhxanhInput">HH Xanh </label>
 
-                                <br>
+                                </div>
                                 <div>
                                     <input type="number" id="goldInput" name="Gold" onchange="ModGold()" min="0" step="1000">
-                                    <label for="goldInput">Mod Gold ( Bật Unban) </label>
+                                    <label for="goldInput">Mod Gold </label>
                                 </div>
-                                <br>
 
                                 <div>
                                     <input type="number" id="ballInput" name="ball" onchange="ModBall()" min="0" step="1000">
@@ -1751,20 +1738,20 @@ function Tatloi() {
                                     <label for="autowin">
                                         <span></span> Siwoo beak
                                     </label>
-                                    <input type="checkbox" id="autowin1tr" name="check" onclick="MauSiwoo()"><label for="autowin1tr">
-                                        <span></span>   Màu Siwoo</label>
+                                  
                                                                             <input type="checkbox" id="tangaura" name="check" onclick="tangaura()"><label for="tangaura">
-                                        <span></span>   Tăng Aura Siwoo</label>
+                                                                                                                   <input type="checkbox" id="tangaura" name="check" onclick="tangaura()"><label for="tangaura"> <span></span>   Tăng Aura Siwoo</label>
                                     <input type="checkbox" id="autowin1" name="check" onclick="Buffchiso()"><label for="autowin1">
                                         <span></span>   Buff Chỉ Số</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="autowinn98" name="check" onclick="ModmaurankS()"><label for="autowinn98">
-                                        <span></span>Rank S </label>
-                                    <input type="checkbox" id="autowinb98" name="check" onclick="ModmaurankSS()"><label for="autowinb98">
-                                        <span></span>Rank S+ </label>
-                                    <input type="checkbox" id="autowin98" name="check" onclick="ModmaurankA()"><label for="autowin98">
-                                        <span></span>Rank A </label>
+                                                                        <input type="number" id="MauSiwooInput" name="Gold" onchange="MauSiwoo()" min="0" step="1000">                        <label for="MauSiwooInput">Màu Siwoo </label>
+                                      <input type="number" id="RankSInput" name="Gold" onchange="ModmaurankS()" min="0" step="1000"><label for="RankSInput">
+                                     Rank S </label>
+                                                                       <input type="number" id="RankSSInput" name="Gold" onchange="ModmaurankSS()" min="0" step="1000"><label for="RankSSInput">
+Rank S+ </label>
+                                    <input type="number" id="RankAInput" name="Gold" onchange="ModmaurankA()" min="0" step="1000"><label for="RankAInput">
+Rank A </label>
                                 </div>
 
                             </div>
