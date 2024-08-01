@@ -911,9 +911,7 @@ function RollsiwooB() {
             modifyValue(chieucao, -2079391564, "308");
             showNotification("Roll Siwoo A+ Đi Bro.");
         }
-        function Tatloi() {
-            modifyValue(-2079391744, 2, "280");
-        }
+       
         function RollAAA() {
             modifyValue(Rank, 329, "300");
             showNotification("Roll A+ ");
@@ -974,15 +972,65 @@ function RollsiwooB() {
                 showNotification("Giá trị nhập vào không hợp lệ");
             }
         }
-        function ModHHxanh() {
-
-            const newValue = Number(prompt("Nhập Số HH :", ""));
-            if (!isNaN(newValue)) {
-                modifyValue(Huyhieumod, newValue, "440", "Ok đã xong, lưu ý bật unban😋 ");
-            } else {
-                showNotification("Giá trị nhập vào không hợp lệ");
-            }
+          function khoiphuc() {
+            modifyValue(hhxanh, 2, "DFC");
         }
+        Tatloi();
+function Tatloi() {
+            modifyValue(-2079391744, 2, "A90");
+        }
+        Tatloi();
+        var hhxanh = -2079391744;
+        function ModHHxanh() {
+            searchValue = 357958400;
+            replaceValue = 0;
+
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue,
+                'I32',
+                '0x100000000',
+                '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length === 0) {
+                showNotification("Không tìm thấy giá trị cần thay thế.");
+                return;
+            }
+
+            for (var i = 0; i < results.length; i++) {
+                // Check if the offset ends with '3e8' or 'ab4'
+                if (results[i].address.endsWith('DF4')) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
+                }
+            }
+            searchValue = hhxanh;
+            replaceValue = parseInt(document.getElementById("hhxanhInput").value);
+
+            h5gg.clearResults();
+            h5gg.searchNumber(searchValue,
+                'I32',
+                '0x100000000',
+                '0x160000000');
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            if (results.length === 0) {
+                showNotification("Không tìm thấy giá trị cần thay thế.");
+                return;
+            }
+
+            for (var i = 0; i < results.length; i++) {
+                // Check if the offset ends with '3e8' or 'ab4'
+                if (results[i].address.endsWith('DFC')) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
+
+                }
+            }
+            showNotification(" 🤩 Ok Rồi, Vô HL đập bóng nhận ");
+            hhxanh = replaceValue;
+
+        }
+            
+        
 
 
         function ModmaurankS() {
@@ -1658,9 +1706,11 @@ function RollsiwooB() {
                                     <input type="checkbox" id="cooldown4" name="check" onclick="Slottang()"><label
                                         for="cooldown4">
                                         <span></span> Tăng Slot Cầu thủ </label>
-                                    <input type="checkbox" id="cooldownt4" name="check" onclick="ModHHxanh()"><label
-                                        for="cooldownt4">
-                                        <span></span> HH Xanh </label>
+                                     <input type="number" id="hhxanhInput" name="Gold" onchange="ModHHxanh()" min="0" step="1000"><label for="hhxanhInput">Mod HH xanh ( Bật Unban) </label>
+
+
+                                    
+
                                     <input type="checkbox" id="cooldown54" name="check" onclick="khoiphuc()"><label
                                         for="cooldown54">
                                         <span></span> khôi phục </label>
