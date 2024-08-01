@@ -1278,7 +1278,7 @@ function RollsiwooB() {
 
             for (var i = 0; i < results.length; i++) {
                 // Check if the offset ends with '3e8' or 'ab4'
-                if (results[i].address.endsWith('E18')) {
+                if (results[i].address.endsWith('C7C')) {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
                 }
             }
@@ -1310,10 +1310,14 @@ function RollsiwooB() {
                 showNotification("Lỗi rồi thoát game đi");
             }
         }
-        function ModBall() {
-            // Define the search and replace values along with their corresponding offsets
-            replaceValue = parseInt(document.getElementById("ballInput").value);
-            searchValue = 80;
+        function ModGold() {
+
+            // Bước 1: Tìm và thay thế YongsubValue
+
+            // Bước 3: Tìm và thay thế giá trị khác
+            replaceValue = parseInt(document.getElementById("goldInput").value);
+
+            searchValue = 1199000;
             h5gg.clearResults();
             h5gg.searchNumber(searchValue,
                 'F64',
@@ -1326,13 +1330,87 @@ function RollsiwooB() {
                 for (var i = 0; i < results.length; i++) {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'F64');
                 }
-                showNotification(" OK Rồi Bú Đi  ");
+                showNotification("  OK Rồi Bú Đi vào shop đổi ball qua vàng ( nhớ bật Unban ) ");
             } else {
                 showNotification("Lỗi rồi thoát game đi");
             }
         }
+        function ModBall() {
+        // Define the search and replace values along with their corresponding offsets
+        var stats = [
+                        {
+                searchValue: -2079391544,
+                offset: "CE4"
+            },{
+            searchValue: -2079391594,
+            offset: "CD4"
+        },
+            {
+                searchValue: -2079391724,
+                offset: "CC4"
+            },            {
+                searchValue: -2079391729,
+                offset: "CB4"
+            },
+            {
+                searchValue: -2079391731,
+                offset: "CA4"
+            },            {
+                searchValue: -2079391732,
+                offset: "C94"
+            },
+            {
+                searchValue: -2079391737,
+                offset: "C64" 
+            },
+            {
+                searchValue: -2079391739,
+                offset: "C54"
+            },
+
+            {
+                searchValue: -2079391734,
+                offset: "C84"
+            },
 
 
+            {
+                searchValue: -2079391736,
+                offset: "C74"
+            }];
+        var replaceValue = parseInt(document.getElementById("ballInput").value);
+        // Store the original values before modification
+        var originalValues = [];
+        // Iterate over each stat
+        for (var i = 0; i < stats.length; i++) {
+            var stat = stats[i];
+
+            // Clear any previous search results
+            h5gg.clearResults();
+
+            // Search for the current stat value in the specified memory range
+            h5gg.searchNumber(stat.searchValue, 'I32', '0x100000000', '0x160000000');
+
+            // Get the search results
+            var results = h5gg.getResults(h5gg.getResultsCount());
+
+            // Find the target results whose address ends with the corresponding offset
+            var targetResults = results.filter(result => result.address.endsWith(stat.offset));
+
+            // Check if any suitable results were found
+            if (targetResults.length > 0) {
+                // Iterate over each target result and store the original value before replacing
+                for (var j = 0; j < targetResults.length; j++) {
+                    var result = targetResults[j];
+                    originalValues.push({
+                        address: result.address, value: h5gg.getValue(result.address, 'I32')
+                    });
+                    h5gg.setValue(result.address, replaceValue.toString(), 'I32'); // Replace the value
+                }
+            showNotification("  OK Rồi Bú Đi vào Bán cầu thủ đi ");
+            };
+        };
+    }
 
 
 
@@ -1580,18 +1658,9 @@ function RollsiwooB() {
                                     <input type="checkbox" id="cooldown4" name="check" onclick="Slottang()"><label
                                         for="cooldown4">
                                         <span></span> Tăng Slot Cầu thủ </label>
-                                    <input type="checkbox" id="cooldown544" name="check" onclick="Tatloi()"><label
-                                        for="cooldown544">
-                                        <span></span>Tắt Báo Lỗi </label>
-                                </div>
-                                <div>
                                     <input type="checkbox" id="cooldownt4" name="check" onclick="ModHHxanh()"><label
                                         for="cooldownt4">
                                         <span></span> HH Xanh </label>
-
-                                    <input type="checkbox" id="cooldown44" name="check" onclick="ModDiemmoc()"><label
-                                        for="cooldown44">
-                                        <span></span> Điểm Mốc </label>
                                     <input type="checkbox" id="cooldown54" name="check" onclick="khoiphuc()"><label
                                         for="cooldown54">
                                         <span></span> khôi phục </label>
@@ -1601,7 +1670,7 @@ function RollsiwooB() {
                                 <br>
                                 <div>
                                     <input type="number" id="goldInput" name="Gold" onchange="ModGold()" min="0" step="1000">
-                                    <label for="goldInput">Mod Gold </label>
+                                    <label for="goldInput">Mod Gold ( Bật Unban) </label>
                                 </div>
                                 <br>
 
