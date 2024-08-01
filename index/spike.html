@@ -490,7 +490,7 @@
             
             // Automatically hide after 3 seconds
             setTimeout(function() {
-                $(alertElement).showNotification('close');
+                $(alertElement).alert('close');
             }, 3000);
         }
         function Buffchiso() {
@@ -756,13 +756,15 @@
                 showNotification("Không tìm thấy kết quả phù hợp để thay đổi.")}}
 function RollsiwooB() {
             modifyValue(YongsubValue, -2079390644, "8C4", "5A8");
-            createToast('success', 'fa-solid fa-circle-check', 'Success', 'Roll Siwoo A+ Đi Bro.');
+            showNotification("Roll Siwoo  A+ Đi Bro.");
 }
+        
         
 
         function RollNishiB() {
             modifyValue(YongsubValue, -2079391594, "8C4", "5A8");
-            createToast('success', 'fa-solid fa-circle-check', 'Success', 'Roll Nishikawa S+ Đi Bro.');
+            showNotification("Roll Nishikawa  S+ Đi Bro.");
+
         }
         function RollNishiBs() {
             modifyValue(YongsubValue, -2079391315, "8C4", "5A8");
