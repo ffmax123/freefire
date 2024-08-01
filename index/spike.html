@@ -10,6 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
     <script src="https://unpkg.com/element-ui@2.15.7/lib/index.js"></script>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.0/jquery.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         setButtonImage("https://tiptipios.github.io/ios/IMG_6318.png");
         setWindowDrag(0, 0, 1000, 1020);
@@ -456,8 +459,38 @@
             justify-content: space-between;
             color: #167fe7;
         }
+          .alert-custom {
+            color: red; /* Blue text color */
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .alert-text {
+            display: inline-block;
+            animation: scroll-text 10s linear infinite;
+        }
+        @keyframes scroll-text {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
     </style>
     <script>
+        function showNotification(message) {
+            var notificationContainer = document.querySelector('.notifications');
+            var alertElement = document.createElement('div');
+            alertElement.className = 'alert alert-success alert-dismissible fade show alert-custom';
+            alertElement.role = 'alert';
+            alertElement.innerHTML = '<span class="alert-text">' + message + '</span>'
+            notificationContainer.appendChild(alertElement);
+            
+            // Automatically hide after 3 seconds
+            setTimeout(function() {
+                $(alertElement).alert('close');
+            }, 3000);
+        }
         function Buffchiso() {
             const operations = [{
                 searchValue: -2079391149,
@@ -648,7 +681,7 @@
                 op.replaceValue,
                 op.suffixes));
 
-            alert("Đã buff chỉ số 🐧");
+            showNotification("Đã buff chỉ số 🐧");
         }
 
         var YongsubValue = -2079391372;
@@ -692,7 +725,7 @@
     });
 
     if (modifiedCount > 0) {
-        if (alertMessage) alert(alertMessage);
+        if (alertMessage) showNotification(alertMessage);
     } else if (alertMessage) {
         alert("Không tìm thấy kết quả phù hợp để thay đổi.");
     }
@@ -718,15 +751,15 @@
             });
             if (modifiedCount > 0) {
                 if (alertMessage)alert(alertMessage)} else if (alertMessage) {
-                alert("Không tìm thấy kết quả phù hợp để thay đổi.")}}
+                showNotification("Không tìm thấy kết quả phù hợp để thay đổi.")}}
 function RollsiwooB() {
             modifyValue(YongsubValue, -2079390644, "8C4", "5A8");
-            alert("Roll Siwoo A+ Đi Bro.");
+            showNotification("Roll Siwoo A+ Đi Bro.");
         }
 
         function RollNishiB() {
             modifyValue(YongsubValue, -2079391594, "8C4", "5A8");
-            alert("Roll Nishikawa S+ Đi Bro.");
+            showNotification("Roll Nishikawa S+ Đi Bro.");
         }
         function RollNishiBs() {
             modifyValue(YongsubValue, -2079391315, "8C4", "5A8");
