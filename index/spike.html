@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
     <script src="https://unpkg.com/element-ui@2.15.7/lib/index.js"></script>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.0/jquery.min.js"></script>
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
@@ -459,7 +459,8 @@
             justify-content: space-between;
             color: #167fe7;
         }
-          .alert-custom {
+
+                .alert-custom {
             color: red; /* Blue text color */
             overflow: hidden;
             white-space: nowrap;
@@ -477,8 +478,9 @@
             }
         }
     </style>
+    
     <script>
-        function showNotification(message) {
+    function showNotification(message) {
             var notificationContainer = document.querySelector('.notifications');
             var alertElement = document.createElement('div');
             alertElement.className = 'alert alert-success alert-dismissible fade show alert-custom';
@@ -488,7 +490,7 @@
             
             // Automatically hide after 3 seconds
             setTimeout(function() {
-                $(alertElement).alert('close');
+                $(alertElement).showNotification('close');
             }, 3000);
         }
         function Buffchiso() {
@@ -727,7 +729,7 @@
     if (modifiedCount > 0) {
         if (alertMessage) showNotification(alertMessage);
     } else if (alertMessage) {
-        alert("Không tìm thấy kết quả phù hợp để thay đổi.");
+        showNotification("Không tìm thấy kết quả phù hợp để thay đổi.");
     }
 }
 
@@ -750,79 +752,80 @@
                 }
             });
             if (modifiedCount > 0) {
-                if (alertMessage)alert(alertMessage)} else if (alertMessage) {
+                if (alertMessage)showNotification(alertMessage)} else if (alertMessage) {
                 showNotification("Không tìm thấy kết quả phù hợp để thay đổi.")}}
 function RollsiwooB() {
             modifyValue(YongsubValue, -2079390644, "8C4", "5A8");
-            showNotification("Roll Siwoo A+ Đi Bro.");
-        }
+            createToast('success', 'fa-solid fa-circle-check', 'Success', 'Roll Siwoo A+ Đi Bro.');
+}
+        
 
         function RollNishiB() {
             modifyValue(YongsubValue, -2079391594, "8C4", "5A8");
-            showNotification("Roll Nishikawa S+ Đi Bro.");
+            createToast('success', 'fa-solid fa-circle-check', 'Success', 'Roll Nishikawa S+ Đi Bro.');
         }
         function RollNishiBs() {
             modifyValue(YongsubValue, -2079391315, "8C4", "5A8");
-            alert("Roll Nishikawa V2 S+ Đi Bro.");
+            showNotification("Roll Nishikawa V2 S+ Đi Bro.");
         }
         function RollYamederaB() {
             modifyValue(YongsubValue, -2079388562, "8C4", "5A8");
-            alert("Roll Yamedera S Đi Bro.");
+            showNotification("Roll Yamedera S Đi Bro.");
         }
 
 
         function RollSoheeB() {
             modifyValue(YongsubValue, -2079389760, "8C4", "5A8 ");
-            alert("Roll Sohee S Đi Bro.");
+            showNotification("Roll Sohee S Đi Bro.");
         }
 
 
         function RollOasitv2B() {
             modifyValue(YongsubValue, -2079391644, "8C4", "5A8");
-            alert("Roll Oasit V2 S Đi Bro.");
+            showNotification("Roll Oasit V2 S Đi Bro.");
 
         }
         function RollIsabelB() {
             modifyValue(YongsubValue, -2079391621, "8C4", "5A8");
-            alert(" Isabel S Đi Bro.");
+            showNotification(" Isabel S Đi Bro.");
         }
 
 
         function RollNNB() {
             modifyValue(YongsubValue, -2079390745, "8C4", "5A8");
-            alert("Roll NN S Đi Bro.");
+            showNotification("Roll NN S Đi Bro.");
         }
         function RollRobertB() {
             modifyValue(YongsubValue, -2079391244, "8C4", "5A8");
-            alert("Roll Robert S Đi Bro.");
+            showNotification("Roll Robert S Đi Bro.");
         }
         function RollleipnBs() {
             modifyValue(YongsubValue, -2079391129, "8C4", "5A8");
-            alert("Roll leion A+ Đi Bro.");
+            showNotification("Roll leion A+ Đi Bro.");
         }
         function RollviolaBs() {
             modifyValue(YongsubValue, -2079391231, "8C4", "5A8");
 
-            alert("Roll  Viola A+ Đi Bro.");
+            showNotification("Roll  Viola A+ Đi Bro.");
         }
         function RollNishiMB() {
             modifyValue(YongsubValue, -2079391594, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391556, "308");
-            alert("Roll Nishikawa  Đi Bro.");
+            showNotification("Roll Nishikawa  Đi Bro.");
         }
         function RollNishiMBs() {
             modifyValue(YongsubValue, -2079391315, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391556, "308");
-            alert("Roll Nishikawa V2  Đi Bro.");
+            showNotification("Roll Nishikawa V2  Đi Bro.");
         }
 
         function RollYamederaMB() {
             modifyValue(YongsubValue, -2079388562, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391550, "308");
-            alert("Roll Yamedera  Đi Bro.");
+            showNotification("Roll Yamedera  Đi Bro.");
         }
 
 
@@ -830,7 +833,7 @@ function RollsiwooB() {
             modifyValue(YongsubValue, -2079389760, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391566, "308");
-            alert("Roll Sohee  Đi Bro.");
+            showNotification("Roll Sohee  Đi Bro.");
         }
 
 
@@ -838,127 +841,127 @@ function RollsiwooB() {
 
             modifyValue(chieucao, -2079391561, "308");
             modifyValue(YongsubValue, -2079391644, "2D0", "5A8");
-            alert("Roll Oasit V2 Đi Bro.");
+            showNotification("Roll Oasit V2 Đi Bro.");
 
         }
         function RollIsabelMB() {
             modifyValue(YongsubValue, -2079391621, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391571, "308");
-            alert(" Roll Isabel  Đi Bro.");
+            showNotification(" Roll Isabel  Đi Bro.");
         }
         function RollYongsubMB() {
             modifyValue(YongsubValue, -2079391564, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391575, "308");
-            alert(" Roll Yongsub  Đi Bro.");
+            showNotification(" Roll Yongsub  Đi Bro.");
         }
         function RollHeesungMB() {
             modifyValue(YongsubValue, -2079391733, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391554, "308");
-            alert(" Roll Heesung  Đi Bro.");
+            showNotification(" Roll Heesung  Đi Bro.");
         }
         function RollSolhawMB() {
             modifyValue(YongsubValue, -2079391684, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391554, "308");
-            alert(" Roll Solhwa  Đi Bro.");
+            showNotification(" Roll Solhwa  Đi Bro.");
         }
         function RollAtisMB() {
             modifyValue(YongsubValue, -2079391444, "2D0", "5A8");
             modifyValue(chieucao, -2079391526, "308");
-            alert(" Roll Atis  Đi Bro.");
+            showNotification(" Roll Atis  Đi Bro.");
         }
         function RollAyheonMB() {
             modifyValue(YongsubValue, -2079391713, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391586, "308");
-            alert(" Roll ayheon  Đi Bro.");
+            showNotification(" Roll ayheon  Đi Bro.");
         }
         function RollSanghyeonMB() {
             modifyValue(YongsubValue, -2079391664, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391556, "308");
-            alert(" Roll Sanghyeon  Đi Bro.");
+            showNotification(" Roll Sanghyeon  Đi Bro.");
         }
         function RollNamMB() {
             modifyValue(YongsubValue, -2079391667, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391552, "308");
-            alert(" Roll Nam  Đi Bro.");
+            showNotification(" Roll Nam  Đi Bro.");
         }
         function RollNNMB() {
             modifyValue(YongsubValue, -2079390745, "2D0", "5A8");
 
             modifyValue(chieucao, -2079391536, "308");
-            alert("Roll NN  Đi Bro.");
+            showNotification("Roll NN  Đi Bro.");
         }
 
         function RollRobertMB() {
             modifyValue(YongsubValue, -2079391244, "2D0", "5A8");
             modifyValue(chieucao, -2079391538, "308");
-            alert("Roll Robert  Đi Bro.");
+            showNotification("Roll Robert  Đi Bro.");
         }
 
         function RollsiwooMB() {
             modifyValue(YongsubValue, -2079390644, "2D0", "5A8");
             modifyValue(chieucao, -2079391564, "308");
-            alert("Roll Siwoo A+ Đi Bro.");
+            showNotification("Roll Siwoo A+ Đi Bro.");
         }
         function Tatloi() {
             modifyValue(-2079391744, 2, "280");
         }
         function RollAAA() {
             modifyValue(Rank, 329, "300");
-            alert("Roll A+ ");
+            showNotification("Roll A+ ");
         }
         function RollSSS() {
             modifyValue(Rank, 793, "300");
-            alert("Roll S+ ");
+            showNotification("Roll S+ ");
         }
         function RollSS() {
             modifyValue(Rank, 386, "300");
-            alert("Roll S ");
+            showNotification("Roll S ");
         }
         function RollSE() {
             modifyValue(Vitri, 307, "2F4");
-            alert("Roll SE ");
+            showNotification("Roll SE ");
         }
         function RollWS() {
             modifyValue(Vitri, 306, "2F4");
-            alert("Roll WS ");
+            showNotification("Roll WS ");
         }
         function RollMB() {
             modifyValue(Vitri, 308, "2F4");
-            alert("Roll MB ");
+            showNotification("Roll MB ");
         }
         function RollOB() {
             modifyValue(Vitri, 757, "2F4");
-            alert("Roll OB ");
+            showNotification("Roll OB ");
         }
         function RollOS() {
             modifyValue(Vitri, 756, "2F4");
-            alert("Roll OS ");
+            showNotification("Roll OS ");
         }
         function RollleipnMB() {
             modifyValue(YongsubValue, -2079391129, "2D0", "5A8");
             modifyValue(chieucao, -2079391548, "308");
-            alert("Roll Leion  Đi Bro.");
+            showNotification("Roll Leion  Đi Bro.");
         }
         function tangaura() {
             modifyValue(-2079391684, -2079391743, "768");        }
         function RollviolaMB() {
             modifyValue(YongsubValue, -2079391231, "2D0", "5A8");
             modifyValue(chieucao, -2079391572, "308");
-            alert("Roll Viola  Đi Bro.");
+            showNotification("Roll Viola  Đi Bro.");
         }
         function Rollsoluong() {
             const newValue = Number(prompt("Nhập số lượng :", ""));
             if (!isNaN(newValue)) {
                 modifyValue(soluong, newValue, "028", "Đã Chỉnh số lượng ");
             } else {
-                alert("Giá trị nhập vào không hợp lệ");
+                showNotification("Giá trị nhập vào không hợp lệ");
             }
         }
         function Slottang() {
@@ -966,7 +969,7 @@ function RollsiwooB() {
             if (!isNaN(newValue)) {
                 modifyValue(slots, newValue, "568", "Đã Chỉnh số lượng ");
             } else {
-                alert("Giá trị nhập vào không hợp lệ");
+                showNotification("Giá trị nhập vào không hợp lệ");
             }
         }
         function ModHHxanh() {
@@ -975,7 +978,7 @@ function RollsiwooB() {
             if (!isNaN(newValue)) {
                 modifyValue(Huyhieumod, newValue, "440", "Ok đã xong, lưu ý bật unban😋 ");
             } else {
-                alert("Giá trị nhập vào không hợp lệ");
+                showNotification("Giá trị nhập vào không hợp lệ");
             }
         }
 
@@ -985,7 +988,7 @@ function RollsiwooB() {
             if (!isNaN(newValue)) {
                 modifyValue(rankS, newValue, "494", "Đã đổi màu");
             } else {
-                alert("Giá trị nhập vào không hợp lệ");
+                showNotification("Giá trị nhập vào không hợp lệ");
             }
         }
         function ModmaurankSS() {
@@ -993,7 +996,7 @@ function RollsiwooB() {
             if (!isNaN(newValue)) {
                 modifyValue(rankSS, newValue, "4A4", "Đã đổi màu");
             } else {
-                alert("Giá trị nhập vào không hợp lệ");
+                showNotification("Giá trị nhập vào không hợp lệ");
             }
         }
         function ModmaurankA() {
@@ -1001,7 +1004,7 @@ function RollsiwooB() {
             if (!isNaN(newValue)) {
                 modifyValue(rankA, newValue, "480", "Đã đổi màu");
             } else {
-                alert("Giá trị nhập vào không hợp lệ");
+                showNotification("Giá trị nhập vào không hợp lệ");
             }
         }
 
@@ -1010,7 +1013,7 @@ function RollsiwooB() {
             if (!isNaN(newValue)) {
                 modifyValue1(mausiwoo, newValue,"460","E90", "7A8", "Đã đổi màu");
             } else {
-                alert("Giá trị nhập vào không hợp lệ");
+                showNotification("Giá trị nhập vào không hợp lệ");
             }
         }
 
@@ -1055,11 +1058,11 @@ function RollsiwooB() {
 
                 } else {
 
-                    alert("Không tìm thấy kết quả phù hợp để thay đổi.");
+                    showNotification("Không tìm thấy kết quả phù hợp để thay đổi.");
                 }
             } else {
                 // Alert if no suitable results were found in the first search
-                alert("Không tìm thấy kết quả phù hợp để thay đổi.");
+                showNotification("Không tìm thấy kết quả phù hợp để thay đổi.");
             }
         }
 
@@ -1069,7 +1072,7 @@ function RollsiwooB() {
                 modifyValue(-2079391743, -2079391730, "160");
                 modifyValue(StyleOld, newValue, "14C", "Đã đổi màu");
             } else {
-                alert("Giá trị nhập vào không hợp lệ");
+                showNotification("Giá trị nhập vào không hợp lệ");
             }
         }
         var StyleOld = 52479;
@@ -1087,7 +1090,7 @@ function RollsiwooB() {
             var results = h5gg.getResults(h5gg.getResultsCount());
 
             if (results.length === 0) {
-                alert("Không tìm thấy giá trị cần thay thế.");
+                showNotification("Không tìm thấy giá trị cần thay thế.");
                 return;
             }
 
@@ -1108,7 +1111,7 @@ function RollsiwooB() {
             var results = h5gg.getResults(h5gg.getResultsCount());
 
             if (results.length === 0) {
-                alert("Không tìm thấy giá trị cần thay thế.");
+                showNotification("Không tìm thấy giá trị cần thay thế.");
                 return;
             }
 
@@ -1129,7 +1132,7 @@ function RollsiwooB() {
             var results = h5gg.getResults(h5gg.getResultsCount());
 
             if (results.length === 0) {
-                alert("Không tìm thấy giá trị cần thay thế.");
+                showNotification("Không tìm thấy giá trị cần thay thế.");
                 return;
             }
 
@@ -1139,7 +1142,7 @@ function RollsiwooB() {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
                 }
             }
-            alert("Đã thực hiện thay thế ");
+            showNotification("Đã thực hiện thay thế ");
             StyleOlded = replaceValue;
 
         }
@@ -1172,7 +1175,7 @@ function RollsiwooB() {
                     h5gg.setValue(result.address, replaceValue.toString(), 'I32');
                 }
             });
-            alert("Đã Mod Siwoo beak.");
+            showNotification("Đã Mod Siwoo beak.");
         }
 
         function rollFree2() {
@@ -1187,9 +1190,9 @@ function RollsiwooB() {
 
             if (targetResult) {
                 h5gg.setValue(targetResult.address, replaceValue.toString(), 'I32'); // Thay đổi kết quả tìm được
-                alert("Đã Có thể Roll,mua Free!");
+                showNotification("Đã Có thể Roll,mua Free!");
             } else {
-                alert("Không tìm thấy kết quả phù hợp để thay đổi.");
+                showNotification("Không tìm thấy kết quả phù hợp để thay đổi.");
             }
         }
 
@@ -1204,7 +1207,7 @@ function RollsiwooB() {
             var results = h5gg.getResults(h5gg.getResultsCount());
 
             if (results.length === 0) {
-                alert("Không tìm thấy giá trị cần thay thế.");
+                showNotification("Không tìm thấy giá trị cần thay thế.");
                 return false;
             }
 
@@ -1231,9 +1234,9 @@ function RollsiwooB() {
                 for (var i = 0; i < results.length; i++) {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'I32');
                 }
-                alert(" OK Rồi Bú Đi  ");
+                showNotification(" OK Rồi Bú Đi  ");
             } else {
-                alert("Lỗi rồi thoát game đi");
+                showNotification("Lỗi rồi thoát game đi");
             }
         }
 
@@ -1250,9 +1253,9 @@ function RollsiwooB() {
                 for (var i = 0; i < results.length; i++) {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'F64');
                 }
-                alert(" OK Rồi Bú Đi  ");
+                showNotification(" OK Rồi Bú Đi  ");
             } else {
-                alert("Lỗi rồi thoát game đi");
+                showNotification("Lỗi rồi thoát game đi");
             }
         }
         function Unban() {
@@ -1267,7 +1270,7 @@ function RollsiwooB() {
             var results = h5gg.getResults(h5gg.getResultsCount());
 
             if (results.length === 0) {
-                alert("Không tìm thấy giá trị cần thay thế.");
+                showNotification("Không tìm thấy giá trị cần thay thế.");
                 return;
             }
 
@@ -1277,7 +1280,7 @@ function RollsiwooB() {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
                 }
             }
-            alert(" 🤩 Đã Bật Antiban Vip ");
+            showNotification(" 🤩 Đã Bật Antiban Vip ");
 
         }
         function ModGold() {
@@ -1300,9 +1303,9 @@ function RollsiwooB() {
                 for (var i = 0; i < results.length; i++) {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'F64');
                 }
-                alert(" OK Rồi Bú Đi  ");
+                showNotification(" OK Rồi Bú Đi  ");
             } else {
-                alert("Lỗi rồi thoát game đi");
+                showNotification("Lỗi rồi thoát game đi");
             }
         }
         function ModBall() {
@@ -1321,11 +1324,14 @@ function RollsiwooB() {
                 for (var i = 0; i < results.length; i++) {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'F64');
                 }
-                alert(" OK Rồi Bú Đi  ");
+                showNotification(" OK Rồi Bú Đi  ");
             } else {
-                alert("Lỗi rồi thoát game đi");
+                showNotification("Lỗi rồi thoát game đi");
             }
         }
+
+
+
 
 
     </script>
@@ -1366,6 +1372,9 @@ function RollsiwooB() {
                         <span @click="changeTab('five')" :style="{background:tabValue==='five'?'#444444':'#111111'}">Mod</span>
                     </div>
                     <strong>
+                           <div class="notifications">
+        
+    </div>
                         <div v-show="tabValue==='one'">
                             <div class="aytext"></div>
                             <div class="checkbox-wrapper-24">
@@ -1380,7 +1389,7 @@ function RollsiwooB() {
                                 </div>
                                 <div>
                                     <input type="checkbox" id="hackmaap" name="hackmaap" onclick="RollNishiB()">
-                                    <label for="hackmaap"><span></span>Nishi S+</label>
+                                    <label for="hackmaap"><span></span>Nishi S+</label>  
                                     <input type="checkbox" id="hackmaaep" name="hackmaap" onclick="RollNishiBs()">
                                     <label for="hackmaaep"><span></span>Nishi V2</label>
                                     <input type="checkbox" id="histoary" onclick="RollYamederaB()">
