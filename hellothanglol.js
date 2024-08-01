@@ -52,10 +52,10 @@
                             if (this.password === this.correctPassword) {
                                 this.isPasswordCorrect=!0; localStorage.setItem("savedPassword", this.password); this.password = ""
                             } else {
-                                alert("Bạn đã nhập sai pass hoặc pass đã được thay đổi, Hãy bấm get key để lấy Pass mới!"); this.currentAttempt++
+                                showNotification("Bạn đã nhập sai pass hoặc pass đã được thay đổi, Hãy bấm get key để lấy Pass mới!"); this.currentAttempt++
                             }},
                         copyLink() {
-                            var tempInput = document.createElement("input"); tempInput.value = this.linkToCopy; document.body.appendChild(tempInput); tempInput.select(); document.execCommand("copy"); document.body.removeChild(tempInput); alert('Link đã được sao chép, Dán qua Safari vượt để lấy Pass !')},
+                            var tempInput = document.createElement("input"); tempInput.value = this.linkToCopy; document.body.appendChild(tempInput); tempInput.select(); document.execCommand("copy"); document.body.removeChild(tempInput); showNotification('Link đã được sao chép, Dán qua Safari vượt để lấy Pass !')},
                         changeTab(v) {
                             this.tabValue = v
                         },
