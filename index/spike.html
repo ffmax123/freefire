@@ -1018,14 +1018,14 @@ function Tatloi() {
                 return;
             }
 
-            for (var i = 0; i < results.length; i++) {
+            for (var i = 0; i < results.length && i < 4; i++) {
                 // Check if the offset ends with '3e8' or 'ab4'
                 if (results[i].address.endsWith('DFC')) {
                     h5gg.setValue(results[i].address, replaceValue.toString(), 'I32'); // Specifying 'I32' as the data type
 
                 }
             }
-            showNotification(" 🤩 Ok Rồi, Vô HL đập bóng nhận ");
+            showNotification(" 🤩 Ok Rồi, Vô HL đập bóng nhận, mod xong chỉnh số hh về 2 rồi lưu ");
             hhxanh = replaceValue;
 
         }
@@ -1711,9 +1711,7 @@ function Tatloi() {
 
                                     
 
-                                    <input type="checkbox" id="cooldown54" name="check" onclick="khoiphuc()"><label
-                                        for="cooldown54">
-                                        <span></span> khôi phục </label>
+    
                                 </div>
 
 
