@@ -512,16 +512,7 @@
         .c {
             color: gold;
         }
-          @keyframes blink-border {
-    0% { border-color: red; }
-    14% { border-color: orange; }
-    28% { border-color: yellow; }
-    42% { border-color: green; }
-    57% { border-color: blue; }
-    71% { border-color: indigo; }
-    85% { border-color: violet; }
-    100% { border-color: red; }
-}
+
 
 @keyframes rainbow-text {
     0% { color: red; }
@@ -538,9 +529,8 @@
     display: inline-block;
 }
         canvas {
-    border: 1.2px solid red; 
+    border: 1.2px solid white; 
     border-radius: 1px;
-    animation: blink-border 2s infinite; 
 }
 
 .overlay-text {
@@ -612,7 +602,7 @@
                     Chỉnh kích thước                            
                     </div>
                                    <button class="onlyfan" id="decreaseButton">-</button>
-                                   <input type="number" id="size" min="0.01" max="5" value="1" step="0.01" readonly>
+                                   <input type="number" id="size" min="0.01" max="10" value="1" step="0.01" readonly>
                                    <button class="onlyfan" id="increaseButton">+</button>
                                    <span id="sizeValue" class="aytext">1</span>
                            </center>
@@ -799,107 +789,124 @@ startDraw(); // Gọi hàm để vẽ đường trên canvas
 
 // Hàm vẽ đường (cập nhật với các đường vẽ của bạn)
 function startDraw() {
-var addr = findAddr();
-if (addr) {
-var whiteLine = findWhite(addr);
-var whiteLineVal = {
-x_start_val: 0,
-y_start_val: 0,
-x_end_val: 0,
-y_end_val: 0
-};
+    var addr = findAddr();
+    if (addr) {
+        var whiteLine = findWhite(addr);
+        var whiteLineVal = {
+            x_start_val: 0,
+            y_start_val: 0,
+            x_end_val: 0,
+            y_end_val: 0
+        };
 
-var ballLine = findBall(addr);
-var ballLineVal = {
-x_start_val: 0,
-y_start_val: 0,
-x_end_val: 0,
-y_end_val: 0
-};
+        var ballLine = findBall(addr);
+        var ballLineVal = {
+            x_start_val: 0,
+            y_start_val: 0,
+            x_end_val: 0,
+            y_end_val: 0
+        };
 
-var table = findTable(addr);
+        var table = findTable(addr);
 
-var scaleFactor = parseFloat(sizeInput.value); // Sử dụng giá trị từ slider
-var tableOnScreen = {
-width: 1536 * 1.05625 * scaleFactor * (1 + parseFloat(document.getElementById("scale").value) / 100),
-height: 848 * 0.9575 * scaleFactor * (1 + parseFloat(document.getElementById("scale").value) / 100)
-};
+        var scaleFactor = parseFloat(sizeInput.value); // Sử dụng giá trị từ slider
+        var tableOnScreen = {
+            width: 1536 * 1.05625 * scaleFactor * (1 + parseFloat(document.getElementById("scale").value) / 100),
+            height: 848 * 0.9575 * scaleFactor * (1 + parseFloat(document.getElementById("scale").value) / 100)
+        };
 
-if (Math.abs(window.orientation) == 90) {
-setWindowRect((window.screen.height - tableOnScreen.width / devicePixelRatio) / 2, (table.y_max - 6) / 3 * (1 + parseFloat(document.getElementById("scaletop").value) / 100), tableOnScreen.width / devicePixelRatio, tableOnScreen.height / devicePixelRatio);
-canvas.width = tableOnScreen.width / devicePixelRatio;
-canvas.height = tableOnScreen.height / devicePixelRatio;
-} else {
-setWindowRect((window.screen.width - tableOnScreen.width / devicePixelRatio) / 2, (table.y_max - 6) / 3 * (1 + parseFloat(document.getElementById("scaletop").value) / 100), tableOnScreen.width / devicePixelRatio, tableOnScreen.height / devicePixelRatio);
+        if (Math.abs(window.orientation) == 90) {
+            setWindowRect((window.screen.height - tableOnScreen.width / devicePixelRatio) / 2, (table.y_max - 6) / 3 * (1 + parseFloat(document.getElementById("scaletop").value) / 100), tableOnScreen.width / devicePixelRatio, tableOnScreen.height / devicePixelRatio);
+            canvas.width = tableOnScreen.width / devicePixelRatio;
+            canvas.height = tableOnScreen.height / devicePixelRatio;
+        } else {
+            setWindowRect((window.screen.width - tableOnScreen.width / devicePixelRatio) / 2, (table.y_max - 6) / 3 * (1 + parseFloat(document.getElementById("scaletop").value) / 100), tableOnScreen.width / devicePixelRatio, tableOnScreen.height / devicePixelRatio);
+        }
+
+        drawScreen = setInterval(function () {
+            var check = readF64(addr);
+            if (check > 1) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // -----------------------line 1----------------------- //
+                whiteLineVal.x_start_val = readF64(whiteLine.x_start);
+                whiteLineVal.y_start_val = readF64(whiteLine.y_start);
+                whiteLineVal.x_end_val = readF64(whiteLine.x_end);
+                whiteLineVal.y_end_val = readF64(whiteLine.y_end);
+
+                var whiteLineValEnd = calculateValEnd(whiteLineVal, table);
+
+                // real line
+                h5gg.setValue(whiteLine.x_end, whiteLineValEnd.x, "F64");
+                h5gg.setValue(whiteLine.y_end, whiteLineValEnd.y, "F64");
+
+                var whiteLineValScreen = pointToScreen2D(whiteLineVal, table);
+                drawLine(ctx, whiteLineValScreen.x_start, whiteLineValScreen.y_start, whiteLineValScreen.x_end, whiteLineValScreen.y_end, "white", 2);
+
+                // Draw circle at the end of the white line
+                drawCircle(ctx, whiteLineValScreen.x_end, whiteLineValScreen.y_end, 4, "white");
+
+                var lineTable = getLineTable(whiteLineVal, table);
+                var angle = 0;
+                if (lineTable.y_end == table.y_max && lineTable.x_end == table.x_max) {
+                    angle = (Math.PI / 2 + calculateAngleBetween2Lines(whiteLineValScreen, lineTable)) * 2;
+                } else {
+                    angle = (Math.PI / 2 - calculateAngleBetween2Lines(whiteLineValScreen, lineTable)) * 2;
+                }
+
+                whiteLineValScreen = rotatePoint(whiteLineValScreen, angle);
+                drawLine(ctx, whiteLineValScreen.x_start, whiteLineValScreen.y_start, whiteLineValScreen.x_end, whiteLineValScreen.y_end, "white", 2);
+
+                // Draw circle at the end of the rotated white line
+                drawCircle(ctx, whiteLineValScreen.x_end, whiteLineValScreen.y_end, 4, "white");
+
+                // -----------------------line 2----------------------- //
+                ballLineVal.x_start_val = readF64(ballLine.x_start);
+                ballLineVal.y_start_val = readF64(ballLine.y_start);
+                ballLineVal.x_end_val = readF64(ballLine.x_end);
+                ballLineVal.y_end_val = readF64(ballLine.y_end);
+
+                var ballValEnd = calculateValEnd(ballLineVal, table);
+
+                // real line
+                h5gg.setValue(ballLine.x_end, ballValEnd.x, "F64");
+                h5gg.setValue(ballLine.y_end, ballValEnd.y, "F64");
+
+                var ballValScreen = pointToScreen2D(ballLineVal, table);
+                drawLine(ctx, ballValScreen.x_start, ballValScreen.y_start, ballValScreen.x_end, ballValScreen.y_end, "white", 2);
+
+                // Draw circle at the end of the ball line
+                drawCircle(ctx, ballValScreen.x_end, ballValScreen.y_end, 4, "white");
+
+                var ballLineTable = getLineTable(ballLineVal, table);
+                var angle = 0;
+                if (ballLineTable.y_end == table.y_max && ballLineTable.x_end == table.x_max) {
+                    angle = (Math.PI / 2 + calculateAngleBetween2Lines(ballValScreen, ballLineTable)) * 2;
+                } else {
+                    angle = (Math.PI / 2 - calculateAngleBetween2Lines(ballValScreen, ballLineTable)) * 2;
+                }
+
+                ballValScreen = rotatePoint(ballValScreen, angle);
+                drawLine(ctx, ballValScreen.x_start, ballValScreen.y_start, ballValScreen.x_end, ballValScreen.y_end, "white", 2);
+
+                // Draw circle at the end of the rotated ball line
+                drawCircle(ctx, ballValScreen.x_end, ballValScreen.y_end, 4, "white");
+            } else {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                addr = findAddr();
+                whiteLine = findWhite(addr);
+                ballLine = findBall(addr);
+            }
+        }, 10);
+    }
 }
 
-drawScreen = setInterval(function () {
-var check = readF64(addr);
-if (check > 1) {
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-// -----------------------line 1----------------------- //
-whiteLineVal.x_start_val = readF64(whiteLine.x_start);
-whiteLineVal.y_start_val = readF64(whiteLine.y_start);
-whiteLineVal.x_end_val = readF64(whiteLine.x_end);
-whiteLineVal.y_end_val = readF64(whiteLine.y_end);
-
-var whiteLineValEnd = calculateValEnd(whiteLineVal, table);
-
-// real line
-h5gg.setValue(whiteLine.x_end, whiteLineValEnd.x, "F64");
-h5gg.setValue(whiteLine.y_end, whiteLineValEnd.y, "F64");
-
-var whiteLineValScreen = pointToScreen2D(whiteLineVal, table);
-drawLine(ctx, whiteLineValScreen.x_start, whiteLineValScreen.y_start, whiteLineValScreen.x_end, whiteLineValScreen.y_end, "red", 2);
-
-var lineTable = getLineTable(whiteLineVal, table);
-var angle = 0;
-if (lineTable.y_end == table.y_max && lineTable.x_end == table.x_max) {
-angle = (Math.PI / 2 + calculateAngleBetween2Lines(whiteLineValScreen, lineTable)) * 2;
-} else {
-angle = (Math.PI / 2 - calculateAngleBetween2Lines(whiteLineValScreen, lineTable)) * 2;
+function drawCircle(ctx, x, y, radius, color) {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+    ctx.fillStyle = color;
+    ctx.fill();
 }
-
-var whiteLineValScreen = rotatePoint(whiteLineValScreen, angle);
-drawLine(ctx, whiteLineValScreen.x_start, whiteLineValScreen.y_start, whiteLineValScreen.x_end, whiteLineValScreen.y_end, "red", 2);
-
-// -----------------------line 2----------------------- //
-ballLineVal.x_start_val = readF64(ballLine.x_start);
-ballLineVal.y_start_val = readF64(ballLine.y_start);
-ballLineVal.x_end_val = readF64(ballLine.x_end);
-ballLineVal.y_end_val = readF64(ballLine.y_end);
-
-var ballValEnd = calculateValEnd(ballLineVal, table);
-
-// real line
-h5gg.setValue(ballLine.x_end, ballValEnd.x, "F64");
-h5gg.setValue(ballLine.y_end, ballValEnd.y, "F64");
-
-var ballValScreen = pointToScreen2D(ballLineVal, table);
-drawLine(ctx, ballValScreen.x_start, ballValScreen.y_start, ballValScreen.x_end, ballValScreen.y_end, "green", 2);
-
-var ballLineTable = getLineTable(ballLineVal, table);
-var angle = 0;
-if (ballLineTable.y_end == table.y_max && ballLineTable.x_end == table.x_max) {
-angle = (Math.PI / 2 + calculateAngleBetween2Lines(ballValScreen, ballLineTable)) * 2;
-} else {
-angle = (Math.PI / 2 - calculateAngleBetween2Lines(ballValScreen, ballLineTable)) * 2;
-}
-
-var ballValScreen = rotatePoint(ballValScreen, angle);
-drawLine(ctx, ballValScreen.x_start, ballValScreen.y_start, ballValScreen.x_end, ballValScreen.y_end, "green", 2);
-} else {
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-addr = findAddr();
-whiteLine = findWhite(addr);
-ballLine = findBall(addr);
-}
-},
-10);
-}
-}
-
 // Cập nhật kích thước canvas ban đầu
 updateCanvasSize(parseFloat(sizeInput.value));
 };
