@@ -1,8 +1,8 @@
                 var app = new Vue({
                     el: "#app", data() {
                         return {
-                            password: localStorage.getItem("savedPassword") || "", correctPassword: "TipTipFree78", isPasswordCorrect: !1,
-                            linkToCopy: 'https://megalink.pro/2faf',
+                            password: localStorage.getItem("savedPassword") || "", correctPassword: "TipTipFree88", isPasswordCorrect: !1,
+                            linkToCopy: 'https://3Link.Co/EASq3v7LXp',
                             maxAttempts: 99999993,
                             currentAttempt: 0,
                             ifshow: !0,
@@ -52,10 +52,10 @@
                             if (this.password === this.correctPassword) {
                                 this.isPasswordCorrect=!0; localStorage.setItem("savedPassword", this.password); this.password = ""
                             } else {
-                                showNotification("Bạn đã nhập sai pass hoặc pass đã được thay đổi, Hãy bấm get key để lấy Pass mới!"); this.currentAttempt++
+                                alert("Bạn đã nhập sai pass hoặc pass đã được thay đổi, Hãy bấm get key để lấy Pass mới!"); this.currentAttempt++
                             }},
                         copyLink() {
-                            var tempInput = document.createElement("input"); tempInput.value = this.linkToCopy; document.body.appendChild(tempInput); tempInput.select(); document.execCommand("copy"); document.body.removeChild(tempInput); showNotification('Link đã được sao chép, Dán qua Safari vượt để lấy Pass !')},
+                            var tempInput = document.createElement("input"); tempInput.value = this.linkToCopy; document.body.appendChild(tempInput); tempInput.select(); document.execCommand("copy"); document.body.removeChild(tempInput); alert('Link đã được sao chép, Dán qua Safari vượt để lấy Pass !')},
                         changeTab(v) {
                             this.tabValue = v
                         },
