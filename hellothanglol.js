@@ -2,7 +2,7 @@
                     el: "#app", data() {
                         return {
                             password: localStorage.getItem("savedPassword") || "", correctPassword: "TipTipFree88", isPasswordCorrect: !1,
-                            linkToCopy: 'https://3Link.Co/EASq3v7LXp',
+                            linkToCopy: 'https://lopteapi.com/pkOAbylHUCUl',
                             maxAttempts: 99999993,
                             currentAttempt: 0,
                             ifshow: !0,
