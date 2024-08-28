@@ -686,6 +686,12 @@
             closeimgui() {
                 var menu = document.querySelector("#app"); menu.style.display = 'none'
             }}});
+
+    // Vô hiệu hóa cảnh báo
+console.warn = function() {};
+
+// Vô hiệu hóa lỗi
+console.error = function() {};
 </script>
 <div class="canvas-container">
     <canvas id="canvas"></canvas>
