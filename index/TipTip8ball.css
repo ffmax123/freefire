@@ -1,0 +1,548 @@
+    html {
+            zoom: 0.9;
+            /*在手机上显示整体放大1.2倍 */
+        }
+        #title-img {
+            position: relative;
+            z-index: 1000;
+            top: 1px;
+
+        }
+        body,
+        html {
+            min-width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            font-weight: 1000;
+            font-size: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 2000;
+
+        }
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+        *:not(input, checkbox, textarea) {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #H5AlertView {
+            text-align: center;
+        }
+
+        #titleBar {
+            font-weight: 500;
+            font-size: 14px;
+            position: relative;
+            color: white;
+            top: -7px;
+            border-radius: 5px;
+        }
+
+
+        .ciamenu1 {
+            width: 260px;
+            height: 30px;
+            border-radius: 10px;
+            background: #fff;
+            position: relative;
+            left: 15px;
+
+
+        }
+
+        .ciamain {
+            width: 250px;
+            height: 80px;
+            border-radius: 12px;
+            background: #fff;
+            position: relative;
+            left: 15px;
+            top: 0px;
+        }
+        .ayimgui {
+            position: flex;
+            width: auto;
+            height: auto;
+            border: 5px;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            border: 1px solid #555;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .ayimgui .aytitle {
+            padding: 5px;
+            font-size: 15px;
+            background-color: #000;
+
+        }
+
+        .ayimgui .aytitle i {
+            font-size: 20px;
+            color: #f0f0f0;
+        }
+
+        .ayimgui .aytitle .titleClose {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: #F0F0F0;
+        }
+
+        .ayimgui .aytitle .titleClose:hover {
+            color: #409EFF;
+        }
+
+        .ayimgui .aybody {
+            padding: 15px;
+            height: calc(100% - 21px - 15px - 15px);
+            /*减去标题高度，减去上线padding高度*/
+            overflow: auto;
+            font-size: 14px;
+        }
+
+
+        .aytext {
+            width: 100%;
+            padding-top: 5px;
+            margin-bottom: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            color: rgb(51, 205, 232);
+        }
+        button:active {
+            transform: translateY(3px)
+        }
+
+        .el-checkbox {
+            margin: 0px;
+        }
+
+        .el-checkbox__label {
+            color: #f0f0f0;
+        }
+
+        .el-checkbox__input.is-checked+.el-checkbox__label {
+            color: #409EFF;
+        }
+
+        .el-checkbox__inner {
+            background-color: #333333;
+            border-radius: 50%;
+            width: 24px;
+            /* Tăng kích thước */
+            height: 24px;
+            /* Tăng kích thước */
+        }
+
+
+        .el-radio {
+            margin: 8px 0;
+        }
+
+        .el-radio__label {
+            color: #F0F0F0;
+        }
+
+        .el-radio__input.is-checked+.el-radio__label {
+            color: #f0f0f0;
+        }
+
+        .el-radio__inner {
+            background-color: rgb(254, 254, 254);
+            border: none;
+        }
+
+        .el-radio__input.is-checked .el-radio__inner {
+            background-color: rgb(254, 254, 254);
+        }
+
+        .el-radio__inner::after {
+            width: 10px;
+            height: 10px;
+            background-color: rgb(58, 138, 247);
+        }
+
+        .onlySelect {
+            background-color: rgb(254, 254, 254);
+            border: none;
+        }
+
+        .onlySelect .el-select-dropdown__item {
+            color: #F0F0F0;
+
+        }
+
+        .onlySelect .el-select-dropdown__item.hover,
+        .el-select-dropdown__item:hover:hover {
+            background-color: transparent;
+        }
+
+        .onlySelect .popper__arrow {
+            border-bottom-color: rgb(254, 254, 254) !important;
+        }
+
+        .onlySelect.el-popper[x-placement^=bottom] .popper__arrow::after {
+            border-bottom-color: rgb(8254, 254, 254) !important;
+        }
+
+        .el-select {
+            width: 100%;
+        }
+
+        .el-select .el-input {
+            background-color: rgb(254, 254, 254);
+        }
+
+        .el-select .el-input__suffix {
+            background-color: rgb(160, 196, 243);
+            color: #F0F0F0;
+            right: 0;
+        }
+
+        .el-select .el-select__caret {
+            color: #F0F0F0;
+        }
+
+        .el-select .el-input__inner {
+            background-color: transparent;
+            border: none;
+            color: #F0F0F0;
+        }
+
+        .el-select .el-input .el-select__caret {
+            color: #F0F0F0;
+        }
+
+        /* 解决ios下拉需要点两次 */
+        .el-scrollbar .el-scrollbar__bar {
+            opacity: 1 !important;
+        }
+
+        .el-button {
+            font-size: 14px;
+            padding: 5px 10px;
+            line-height: 14px;
+            color: #F0F0F0;
+            background-color: #B8D1F2;
+        }
+
+        .el-button:hover {
+            opacity: .7;
+            color: #F0F0F0;
+            background-color: #B8D1F2;
+        }
+
+        .el-button:focus,
+        .el-button:hover {
+            color: #F0F0F0;
+            background-color: #B8D1F2;
+        }
+
+        .aycollapse {
+            width: 100%;
+            height: 6%;
+            font-size: 14px;
+            background-color: rgb(0,0,0);
+            color: #e9f912;
+        }
+
+        .aytab {
+            width: 100%;
+            height: 25px;
+            display: flex;
+            border-bottom: 0.8px solid #666;
+            order: 1;
+        }
+
+        .aytab span {
+
+            padding: 0 5px;
+            width: 15%;
+            height: 97%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(189, 199, 208);
+            color: #F0F0F0;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 10px;
+            border-top: 0.8px solid #666;
+            border-right: 0.8px solid #666;
+            border-left: 0.8px solid #666;
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            order: 2;
+        }
+
+        .aycollapses span {
+            background-color: rgb(177, 206, 240);
+            color: #000;
+        }
+
+        .el-input input {
+            background-color: rgb(254, 254, 254);
+            border: none;
+            border-radius: 0px;
+        }
+
+        .checkbox-wrapper-24 .checkbox {
+            display: table-cell;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            text-align: center;
+
+        }
+
+        .checkbox-wrapper-24 label {
+            display: inline-block;
+            color: #f9f9f9;
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .checkbox-wrapper-24 label span {
+            display: inline-block;
+            position: relative;
+            background-color: #999;
+            width: 25px;
+            height: 25px;
+            transform-origin: center;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+
+        }
+
+        .checkbox-wrapper-24 label span:before {
+            content: "";
+            width: 0px;
+            height: 2px;
+            border-radius: 2px;
+            position: absolute;
+            transform: rotate(45deg);
+            top: 10px;
+            left: 4px;
+            transition: width 50ms ease 50ms;
+            transform-origin: 0% 100%;
+        }
+
+        .checkbox-wrapper-24 label span:after {
+            content: "";
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+
+            position: absolute;
+            transform: rotate(305deg);
+            top: 15px;
+            left: 8px;
+
+            transform-origin: 25% 0%;
+        }
+
+        .checkbox-wrapper-24 label:hover span:before {
+            width: 7px;
+
+        }
+
+        .checkbox-wrapper-24 label:hover span:after {
+            width: 15px;
+
+        }
+
+        .checkbox-wrapper-24 input[type=checkbox] {
+            display: none;
+
+        }
+
+        .checkbox-wrapper-24 input[type=checkbox]:checked+label span {
+            background-color: #cdcccb;
+        }
+
+        .checkbox-wrapper-24 input[type=checkbox]:checked+label span:after {
+            width: 16px;
+            background: #0cea1f;
+
+        }
+
+        .checkbox-wrapper-24 input[type=checkbox]:checked+label span:before {
+            width: 9px;
+            background: #1df40e;
+
+        }
+        .checkbox-wrapper-25 .checkbox {
+            display: table-cell;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            text-align: center;
+
+        }
+
+        .checkbox-wrapper-25 label {
+            width: 102px;
+            display: inline-block;
+            color: #f9f9f9;
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .checkbox-wrapper-25 label span {
+            display: inline-block;
+            position: relative;
+            background-color: #999;
+            width: 25px;
+            height: 25px;
+            transform-origin: center;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+
+        }
+
+        .checkbox-wrapper-25 label span:before {
+            content: "";
+            width: 0px;
+            height: 2px;
+            border-radius: 2px;
+
+            position: absolute;
+            transform: rotate(45deg);
+            top: 10px;
+            left: 4px;
+            transition: width 50ms ease 50ms;
+            transform-origin: 0% 100%;
+        }
+
+        .checkbox-wrapper-25 label span:after {
+            content: "";
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+
+            position: absolute;
+            transform: rotate(305deg);
+            top: 15px;
+            left: 8px;
+
+            transform-origin: 25% 0%;
+        }
+
+        .checkbox-wrapper-25 label:hover span:before {
+            width: 7px;
+
+        }
+
+        .checkbox-wrapper-25 label:hover span:after {
+            width: 15px;
+
+        }
+
+        .checkbox-wrapper-25 input[type=checkbox] {
+            display: none;
+
+        }
+
+        .checkbox-wrapper-25 input[type=checkbox]:checked+label span {
+            background-color: #cdcccb;
+        }
+
+        .checkbox-wrapper-25 input[type=checkbox]:checked+label span:after {
+            width: 16px;
+            background: #0cea1f;
+
+        }
+
+        .checkbox-wrapper-25 input[type=checkbox]:checked+label span:before {
+            width: 9px;
+            background: #1df40e;
+
+        }
+
+        .vip {
+            background-color: rgb(243, 210, 23);
+            color: black;
+            padding: 3px 20px;
+            position: absolute;
+            bottom: 25px;
+            right: 0;
+            transform: rotate(-45deg) translate(15px, 15px);;
+            transform-origin: right bottom;
+        }
+
+        .c {
+            color: gold;
+        }
+
+
+@keyframes rainbow-text {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    57% { color: blue; }
+    71% { color: indigo; }
+    85% { color: violet; }
+    100% { color: red; }
+}
+        .canvas-container {
+    position: relative;
+    display: inline-block;
+}
+        canvas {
+    border: 1.2px solid white; 
+    padding: 6.8px;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 95%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: bold;
+    pointer-events: none; 
+    animation: rainbow-text 2s infinite; 
+}
+       .overlay-text1 {
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: bold;
+    pointer-events: none; 
+    animation: rainbow-text 2s infinite; 
+} 
+        .onlyfan {
+            display: inline;
+            height: 26px;
+            background: #fff;
+            font-weight: unset;
+            border-radius: 27px;
+            font-size: larger;
+            align-items: center;
+            justify-content: space-between;
+            color: #167fe7;
+        }
+
